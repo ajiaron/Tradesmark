@@ -569,7 +569,7 @@ export default function Home() {
               <div className={styles.footerButtonContainer}>
                 <a className={styles.footerContactButton} href="mailto:aaronjiang3942@gmail.com">
                   <p className={styles.buttonText}>
-                    Let&pos;s Get Started
+                    Let&apos;s Get Started
                   </p>
                 </a>
               
