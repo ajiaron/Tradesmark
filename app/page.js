@@ -562,14 +562,14 @@ export default function Home() {
                     Ready to level up your Business?
                   </p>
                   <p className={[styles.footerHeaderText, styles.footerTextAlt].join(' ')}>
-                    Let's get in touch!
+                    Let&apos;s get in touch!
                   </p>
                 </div>
               </div>
               <div className={styles.footerButtonContainer}>
                 <a className={styles.footerContactButton} href="mailto:aaronjiang3942@gmail.com">
                   <p className={styles.buttonText}>
-                    Let's Get Started
+                    Let&pos;s Get Started
                   </p>
                 </a>
               
