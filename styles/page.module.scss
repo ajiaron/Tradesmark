@@ -894,11 +894,22 @@
   display: flex;
   flex-direction: column;
   padding-left: 2.375rem;
+  padding-bottom: 2.25rem;
   padding-top: 2.75rem;
   gap:1.875rem;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   background: var(--tab-gradient);
+}
+.pricingContentRight {
+  background-color: #FFFCF9;
+  width: 61.21%;
+  height: 100%; 
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  padding-top: 3.25rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 .pricingLeftTop {
   width: 7.75rem;
@@ -1253,6 +1264,60 @@
 
 
 @media (max-width: 390px) {
+  .servicesContainer {
+    margin-top: 3.625rem;
+    width: 83%;
+    height: fit-content;
+    display: flex;
+    //background-color: red;
+    gap:58px;
+    flex-direction: column;
+  }
+  .servicesRow {
+    flex-direction: row;
+  }
+  .pricingContentContainer {
+    margin-top: 5.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    width: 72.1%;
+    margin-left: auto;
+    margin-right:auto;
+  }
+  .pricingContentContainer {
+    width: 100%;
+    gap:2rem;
+  }
+  .pricingContentLeft {
+    height: 100%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2.375rem;
+    padding-bottom: 2.25rem;
+    padding-top: 2.75rem;
+    padding-right: .75rem;
+    gap:1.875rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-radius:1rem;
+    background: var(--tab-gradient);
+  }
+  .pricingContentRight {
+    background-color: #FFFCF9;
+    width: 95%;
+    height: 100%; 
+    padding-bottom: 2rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 3.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-radius: 1rem;
+  }
   .main {
     overflow-x: hidden;
   }
@@ -1918,6 +1983,48 @@
 }
 }
 @media (min-width: 391px) and (max-width: 480px) {
+  .servicesRow {
+    flex-direction: column;
+  }
+  .pricingContentContainer {
+    margin-top: 5.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    gap:2rem;
+    width: 85%;
+    margin-left: auto;
+    margin-right:auto;
+  }
+  .pricingContentLeft {
+    height: 100%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2.375rem;
+    padding-bottom: 2.25rem;
+    padding-top: 2.75rem;
+    padding-right: .75rem;
+    gap:1.875rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-radius:1rem;
+    background: var(--tab-gradient);
+  }
+  .pricingContentRight {
+    background-color: #FFFCF9;
+    width: 95%;
+    height: 100%; 
+    padding-bottom: 2rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 3.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-radius: 1rem;
+  }
   .heroHeaderText {
     font-family: var(--default-font);
     font-size: var(--text-hero-header);
@@ -2456,6 +2563,46 @@
 }
 }
 @media (min-width: 481px) and (max-width: 768px) {
+  .servicesRow {
+    flex-direction: column;
+  }
+  .pricingContentContainer {
+    margin-top: 5.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    gap:2rem;
+    width: 85%;
+    margin-left: auto;
+    margin-right:auto;
+  }
+  .pricingContentLeft {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2.375rem;
+    padding-top: 2.75rem;
+    padding-bottom: 2.25rem;
+    gap:1.875rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-radius:1rem;
+    background: var(--tab-gradient);
+  }
+  .pricingContentRight {
+    background-color: #FFFCF9;
+    width: 90%;
+    height: 100%; 
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 3.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-radius: 1rem;
+  }
     .heroHeaderText {
       letter-spacing: -3.5px;
     }
@@ -2853,6 +3000,44 @@
 @media (min-width: 769px) and (max-width: 1024px) {
 
       // nav styles 480
+      .pricingContentContainer {
+        margin-top: 5.625rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+        gap:2rem;
+        width: 85%;
+        margin-left: auto;
+        margin-right:auto;
+      }
+      .pricingContentLeft {
+        height: 100%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 2.375rem;
+        padding-top: 2.75rem;
+        gap:1.875rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-radius:1rem;
+        padding-bottom: 2.25rem;
+
+        background: var(--tab-gradient);
+      }
+      .pricingContentRight {
+        background-color: #FFFCF9;
+        width: 90%;
+        height: 100%; 
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+        padding-top: 3.25rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-radius: 1rem;
+      }
       .navbarPlaceholder {
         height: 0vh;
         width: 100vw;

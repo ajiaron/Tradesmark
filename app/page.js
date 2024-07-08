@@ -80,7 +80,7 @@ export default function Home() {
                   Why TradesMark
                 </a>
                 <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com">
-                  FAQ's
+                  FAQ&apos;s
                 </a>
              
               </span>
@@ -403,7 +403,7 @@ export default function Home() {
                 <div className={styles.pricingContentRightBottom}>
                   <div className={styles.pricingContentRightContextContainer}>
                     <p className={styles.pricingContentSubtitle} style={{color:"#0a0a0a"}}>
-                      What's Included?
+                      What&apos;s Included?
                     </p>
                     <p className={styles.pricingContentText} style={{color:"#0a0a0a"}}>
                       We package together Email {'&'} SMS Marketing, Reputation Management, Google Ads, Search Engine Optimization, Web Design Development, and Graphic Design Content to create a formula to take your business to the next level.
@@ -464,7 +464,7 @@ export default function Home() {
                     <span><Image src={Triangle} alt={"arrow"} objectFit={"cover"} style={{transform:"translateY(2.25px)"}}/></span>We Prioritize You
                     </p>
                     <p className={styles.whyContext}>
-                      With over half a decade of being in the advertisement space we prioritize taking your business where it's at, to the level you've always dreamed of.                    </p>
+                      With over half a decade of being in the advertisement space we prioritize taking your business where it&apos;s at, to the level you&apos;ve always dreamed of.                    </p>
                   </div>
                 </div>
                 <div className={styles.whyItem}>
@@ -473,7 +473,7 @@ export default function Home() {
                     <span><Image src={Triangle} alt={"arrow"} objectFit={"cover"} style={{transform:"translateY(2.25px)"}}/></span>Partnership Method
                     </p>
                     <p className={styles.whyContext}>
-                      With our advertising services, we don't make money unless you do, and we provide competitive pricing for branding services.
+                      With our advertising services, we don&apos;t make money unless you do, and we provide competitive pricing for branding services.
                     </p>
                   </div>
                 </div>
@@ -555,7 +555,7 @@ export default function Home() {
                   Why TradesMark
                 </a>
                 <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com">
-                  FAQ's
+                  FAQ&apos;s
                 </a>
               </span>
                <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com" style={{alignSelf:"center"}}>
