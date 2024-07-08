@@ -1,0 +1,255 @@
+:root {
+  --max-width: 1440px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-glow: conic-gradient(
+    from 180deg at 50% 50%,
+    #16abff33 0deg,
+    #0885ff33 55deg,
+    #54d6ff33 120deg,
+    #0071ff33 160deg,
+    transparent 360deg
+  );
+  --secondary-glow: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+
+  --tile-start-rgb: 239, 245, 249;
+  --tile-end-rgb: 228, 232, 233;
+  --tile-border: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #00000020,
+    #00000010,
+    #00000010,
+    #00000080
+  );
+
+  --callout-rgb: 238, 240, 241;
+  --callout-border-rgb: 172, 175, 176;
+  --card-rgb: 180, 185, 188;
+  --card-border-rgb: 131, 134, 135;
+  // own stuff
+  --default-font:"Geist", "sans-serif";
+  --button-radius: 10px;
+  --text-hover-active: #3399FF;
+  --theme-color:#3399FF;
+  --text-color: #0a0a0a;
+  --default-shadow: drop-shadow(0px 0px 10px #3399ff55);
+  --default-shadow-large: drop-shadow(0px 0px 12px #3399ff55);
+  --button-hover-inactive: drop-shadow(0px 0px 0px #0599FFaa);
+  --button-hover-active: drop-shadow(0px 0px 16px #0599FFaa);
+  --button-large-hover-active: drop-shadow(0px 0px 24px #0599FFaa);
+  --tab-gradient: -webkit-linear-gradient(33deg, #1ca1f9, #1f60f9);
+  --button-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+  --text-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+  --subtext-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+  --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+  --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+  --footer-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+  //--text-hero-header: clamp(3rem, 6vw, 74.45px); // hero header
+  --text-hero-header: 70px; // hero header
+  --text-xl: clamp(3.425rem, 4.5vw, 54px); // recent projects header / footer
+  --text-largest: clamp(2.75rem, 4.5vw, 50px); // about header
+  --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
+  --text-large: clamp(2.5rem, 4.5vw, 3rem);  // headers (tools/headers)
+  --text-mediumlarge: clamp(2rem, 4.5vw, 42px);  // headers (tools/headers)
+  --text-larger: clamp(1.25rem, 3vw, 1.75rem); // small titles (tools/framerworks)
+  --text-medium: clamp(1.125rem, 3vw, 1.62rem); // subheaders (milestone, springboard)
+  --text-regular: clamp(1.25rem, 3vw, 1.5rem); // subtexts 
+  --text-small: clamp(1rem, 2.5vw, 1.25rem); // descriptors (below tools), button texts
+  --text-small-v2: clamp(1rem, 2.5vw, 23px); // descriptors (below tools), button texts
+  --text-smaller-v2: clamp(.875rem, 2vw, 21px); // project descriptions
+  --text-smaller: clamp(.875rem, 2vw, 18.39px); // project descriptions
+  --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
+}
+::-moz-selection { /* Code for Firefox */
+  background: #7A68FF77;
+}
+
+::selection {
+  background: #7A68FF77;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+
+    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+    --secondary-glow: linear-gradient(
+      to bottom right,
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0.3)
+    );
+
+    --tile-start-rgb: 2, 13, 46;
+    --tile-end-rgb: 2, 5, 19;
+    --tile-border: conic-gradient(
+      #ffffff80,
+      #ffffff40,
+      #ffffff30,
+      #ffffff20,
+      #ffffff10,
+      #ffffff10,
+      #ffffff80
+    );
+
+    --callout-rgb: 20, 20, 20;
+    --callout-border-rgb: 108, 108, 108;
+    --card-rgb: 100, 100, 100;
+    --card-border-rgb: 200, 200, 200;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+section {
+  overflow-y: hidden;
+  height: fit-content;
+}
+
+html {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  max-height: 100vh;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100vw;
+  max-height: 100vh;
+  height: 100%;
+  background-color: #EFEFEF;
+}
+*:focus {
+  outline: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  padding:0;
+  margin:0;
+}
+p {
+  transform: scaleY(.985);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+@media (max-width: 390px) {
+  :root {
+    --text-hover-active: #3399FF;
+    --theme-color:#3399FF;
+    --text-color: #0a0a0a;
+    --default-shadow: drop-shadow(0px 0px 10px #3399ff55);
+    --default-shadow-large: drop-shadow(0px 0px 16px #3399ff55);
+    --button-hover-inactive: drop-shadow(0px 0px 0px #0599FFaa);
+    --button-hover-active: drop-shadow(0px 0px 16px #0599FFaa);
+    --button-large-hover-active: drop-shadow(0px 0px 24px #0599FFaa);
+    --button-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --text-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --subtext-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --footer-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --text-hero-header: clamp(3.125rem, 6vw, 3rem); // hero header
+    --text-xl: clamp(2.75rem, 4.5vw, 54px); // recent projects header / footer
+    --text-largest: clamp(2.625rem, 4.5vw, 50px); // about header
+    --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
+    --text-large: clamp(2.25rem, 4.5vw, 3rem);  // headers (tools/headers)
+    --text-larger: clamp(1.25rem, 3vw, 1.75rem); // small titles (tools/framerworks)
+    --text-medium: clamp(1.5rem, 3vw, 1.62rem); // subheaders (milestone, springboard)
+    --text-regular: clamp(1.25rem, 3vw, 1.5rem); // subtexts 
+    --text-small: clamp(1.2rem, 2.5vw, 1.25rem); // descriptors (below tools), button texts
+    --text-smaller: clamp(17.75px, 2vw, 17.75px); // project descriptions
+    --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
+  }
+}
+@media (min-width: 391px) and (max-width: 480px) {
+  :root {
+    --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --text-hero-header: clamp(3.3rem, 6vw, 5rem); // hero header
+    --text-xl: clamp(2.75rem, 4.5vw, 54px); // recent projects header / footer
+    --text-largest: clamp(2.625rem, 4.5vw, 50px); // about header
+    --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
+    --text-large: clamp(2.5rem, 4.5vw, 3rem);  // headers (tools/headers)
+    --text-larger: clamp(1.25rem, 3vw, 1.75rem); // small titles (tools/framerworks)
+    --text-medium: clamp(1.5rem, 3vw, 1.62rem); // subheaders (milestone, springboard)
+    --text-regular: clamp(1.25rem, 3vw, 1.5rem); // subtexts 
+    --text-small: clamp(1.2rem, 2.5vw, 1.25rem); // descriptors (below tools), button texts
+    --text-smaller: clamp(17.75px, 2vw, 17.75px); // project descriptions
+    --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  :root {
+    --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+     --text-hero-header: clamp(3.25rem, 5vw, 5rem); // hero header
+     --text-xl: clamp(3rem, 4.5vw, 54px); // recent projects header / footer
+     --text-largest: clamp(2.625rem, 4.5vw, 50px); // about header
+     --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
+     --text-large: clamp(2.5rem, 5.5vw, 3rem);  // headers (tools/headers)
+     --text-larger: clamp(1.25rem, 3vw, 1.75rem); // small titles (tools/framerworks)
+     --text-medium: clamp(1.5rem, 3vw, 1.62rem); // subheaders (milestone, springboard)
+     --text-regular: clamp(1.25rem, 3vw, 1.5rem); // subtexts 
+     --text-small: clamp(1.2rem, 2.5vw, 1.25rem); // descriptors (below tools), button texts
+     --text-smaller: clamp(17.75px, 2vw, 17.75px); // project descriptions
+     --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
+   }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+     --text-hero-header: clamp(3.625rem, 5vw, 5rem); // hero header
+     --text-xl: clamp(3.125rem, 5vw, 54px); // recent projects header / footer
+     --text-largest: clamp(2.625rem, 4.5vw, 50px); // about header
+     --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
+     --text-large: clamp(2.5rem, 5.5vw, 3rem);  // headers (tools/headers)
+     --text-larger: clamp(1.25rem, 3vw, 1.75rem); // small titles (tools/framerworks)
+     --text-medium: clamp(1.5rem, 3vw, 1.62rem); // subheaders (milestone, springboard)
+     --text-regular: clamp(1.25rem, 3vw, 1.5rem); // subtexts 
+     --text-small: clamp(1.2rem, 2.5vw, 1.25rem); // descriptors (below tools), button texts
+     --text-smaller: clamp(17.75px, 2vw, 17.75px); // project descriptions
+     --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
+   }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  :root {
+    --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+    --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+     --text-hero-header: clamp(3rem, 6.2vw, 5rem); // hero header
+     --text-xl: clamp(3.125rem, 5vw, 54px); // recent projects header / footer
+     --text-largest: clamp(2.625rem, 4.5vw, 50px); // about header
+     --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
+     --text-large: clamp(2.5rem, 5.5vw, 3rem);  // headers (tools/headers)
+     --text-larger: clamp(1.25rem, 3vw, 1.75rem); // small titles (tools/framerworks)
+     --text-medium: clamp(1.5rem, 3vw, 1.62rem); // subheaders (milestone, springboard)
+     --text-regular: clamp(1.125rem, 2vw, 1.375rem); // subtexts 
+     --text-small: clamp(1.2rem, 2.5vw, 1.25rem); // descriptors (below tools), button texts
+     --text-smaller: clamp(17.75px, 2vw, 17.75px); // project descriptions
+     --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
+   }
+}
+@media (min-width: 1281px) and (max-width: 1439px) {}
