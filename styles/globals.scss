@@ -38,7 +38,8 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
-  // own stuff
+
+  // design tokens
   --default-font:"Geist", "sans-serif";
   --button-radius: 10px;
   --text-hover-active: #3399FF;
@@ -52,27 +53,29 @@
   --tab-gradient: -webkit-linear-gradient(33deg, #1ca1f9, #1f60f9);
   --button-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
   --text-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
-  --subtext-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
+  --subtext-gradient: -webkit-linear-gradient(0deg, #20a5fd, #0a3eb6);
   --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
   --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
   --footer-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
-  //--text-hero-header: clamp(3rem, 6vw, 74.45px); // hero header
   --text-hero-header: 70px; // hero header
   --text-xl: clamp(3.425rem, 4.5vw, 54px); // recent projects header / footer
   --text-largest: clamp(2.75rem, 4.5vw, 50px); // about header
-  --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
+  --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); 
   --text-large: clamp(2.5rem, 4.5vw, 3rem);  // headers (tools/headers)
   --text-mediumlarge: clamp(2rem, 4.5vw, 42px);  // headers (tools/headers)
   --text-larger: clamp(1.25rem, 3vw, 1.75rem); // small titles (tools/framerworks)
-  --text-medium: clamp(1.125rem, 3vw, 1.62rem); // subheaders (milestone, springboard)
+  --text-medium: clamp(1.125rem, 3vw, 1.62rem); // subheaders 
+  --text-regular-v2: clamp(1.25rem, 3vw, 1.5rem); // subtexts 
   --text-regular: clamp(1.25rem, 3vw, 1.5rem); // subtexts 
   --text-small: clamp(1rem, 2.5vw, 1.25rem); // descriptors (below tools), button texts
   --text-small-v2: clamp(1rem, 2.5vw, 23px); // descriptors (below tools), button texts
+  --text-small-v3: clamp(1rem, 2.5vw, 22px); // descriptors (below tools), button texts
   --text-smaller-v2: clamp(.875rem, 2vw, 21px); // project descriptions
+  --text-smaller-v3: clamp(.875rem, 2vw, 20.5px); // project descriptions
   --text-smaller: clamp(.875rem, 2vw, 18.39px); // project descriptions
   --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
 }
-::-moz-selection { /* Code for Firefox */
+::-moz-selection { /* firefox */
   background: #7A68FF77;
 }
 

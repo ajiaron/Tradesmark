@@ -6,6 +6,9 @@ import {motion, AnimatePresence, useAnimation} from 'framer-motion'
 import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import Triangle from '../public/assets/triangle.svg'
+import Scribble from '../public/assets/scribble.svg'
+import Logo from '../public/assets/logo.svg'
+import Faqs from "./components/faqs";
 
 
 export default function Home() {
@@ -54,7 +57,8 @@ export default function Home() {
       <div className={styles.contentContainer} ref={contentRef}>
           <div ref={navbarRef} className={styles.navbarContainer}>
             <div className={styles.navbarWrapper}>        
-              <span className={styles.navbarTitleContainer}>
+              <span className={styles.navbarTitleContainer} >
+                <Image src={Logo} alt={"logo"} objectFit={'cover'}/>
                 <a ref={titleRef} className={styles.navbarTitle} href="#home">TradesMark</a>
               </span>
               {(windowSize.width <= 1024)?
@@ -512,6 +516,44 @@ export default function Home() {
             </div>
           </section>
 
+          <section className={styles.valueSection}>  
+              <div className={styles.valueContent}>
+                <div className={styles.valueContentLeft}>
+                  <p className={[styles.heroSubtext, styles.subtextAlt].join(' ')}>
+                    ONE-STOP SHOP
+                  </p>
+                  <p className={styles.valueContentHeader}>
+                    The Agency for Full Service Marketing, Web Design, and More!
+                  </p>
+                </div>
+                <div className={styles.valueContentRight}>
+                  <p className={styles.footerTitle} style={{fontWeight:"400"}}>
+                    We offer comprehensive marketing services including content creation, social media management, website design, and ad campaigns.
+                  </p>
+                </div>
+              </div>
+          </section>
+
+          <section className={styles.faqsSection}>
+            <div className={styles.faqsHeaderContainer}>
+              <span className={styles.scribbleContainer}><Image src={Scribble} alt={"scribble"} objectFit={"cover"}/></span>
+              <p className={styles.faqsHeaderText}>
+                Frequently Asked Questions
+              </p>
+              <p className={styles.headerSubtext} style={{textTransform:"none", paddingTop:".75rem",fontSize:"var(--text-smaller-v3)"}}>
+                Everything you need to know about TradesMark.
+              </p>
+            </div>
+            <div className={styles.faqsContent}>
+              <Faqs title={"How fast can TradesMark begin with a client?"}/>
+              <Faqs title={"What sets TradesMark apart against competitors?"}/>
+              <Faqs title={"Does TradesMark offer consultation before purchase?"}/>
+              <Faqs title={"How can TradesMark help with my small business?"}/>
+              <Faqs title={"Is there a trial period?"}/>
+              <Faqs title={"Are there any refunds?"}/>
+            </div>
+          </section>
+
           <section className={styles.footerSection}>
             <div className={styles.footerWrapper}>
               <div className={styles.footerTextContainer}>
@@ -520,14 +562,14 @@ export default function Home() {
                     Ready to level up your Business?
                   </p>
                   <p className={[styles.footerHeaderText, styles.footerTextAlt].join(' ')}>
-                    Lets get in touch!
+                    Let's get in touch!
                   </p>
                 </div>
               </div>
               <div className={styles.footerButtonContainer}>
                 <a className={styles.footerContactButton} href="mailto:aaronjiang3942@gmail.com">
                   <p className={styles.buttonText}>
-                    Get Started
+                    Let's Get Started
                   </p>
                 </a>
               
@@ -537,7 +579,8 @@ export default function Home() {
 
           <div className={styles.footerNavContainer}>
             <div className={styles.navbarWrapper}>        
-              <span className={styles.navbarTitleContainer}>
+              <span className={styles.navbarTitleContainer} style={{paddingTop:"1px"}}>
+                <Image src={Logo} alt={"logo"} objectFit={'cover'}/>
                 <a className={styles.footerTitle} href="#home">TradesMark</a>
               </span>
 
