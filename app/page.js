@@ -8,7 +8,7 @@ import { FaTimes } from "react-icons/fa";
 import Triangle from '../public/assets/triangle.svg'
 import Scribble from '../public/assets/scribble.svg'
 import Logo from '../public/assets/logo.svg'
-import Faqs from "./components/faqs";
+import Faqs from "./components/Faqs";
 
 
 export default function Home() {

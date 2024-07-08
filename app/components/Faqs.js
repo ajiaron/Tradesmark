@@ -27,7 +27,7 @@ const Faqs = ({title, text}) => {
                 initial={{height:0}}
                 transition= {{
                     type: "spring",
-                    stiffness:160,
+                    stiffness:220,
                     damping:30,
                     duration:.05
                 }}
