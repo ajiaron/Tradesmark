@@ -26,6 +26,12 @@ export default function Home() {
   const contentRef = useRef(null);
   // #7A68FF
   const stokeColor = '#7A68FF';
+  useEffect(() => {
+    const font = new FontFace('Geist Sans', 'url(https://fonts.vercel.app/geist-sans.woff2)');
+    font.load().then(function (loadedFont) {
+      document.fonts.add(loadedFont);
+    });
+  }, []);
   const scrollToId = (id, close) => {
     if (close) {
       setExpandNavigation(false)
@@ -58,7 +64,7 @@ export default function Home() {
           <div ref={navbarRef} className={styles.navbarContainer}>
             <div className={styles.navbarWrapper}>        
               <span className={styles.navbarTitleContainer} >
-                <Image src={Logo} alt={"logo"} objectFit={'cover'}/>
+                <Logo/>
                 <a ref={titleRef} className={styles.navbarTitle} href="#home">TradesMark</a>
               </span>
               {(windowSize.width <= 1024)?
@@ -99,6 +105,7 @@ export default function Home() {
             <AnimatePresence>
               {(expandNavigation)&&              
               <motion.div className={styles.navigationPane}
+                onClick={()=>setExpandNavigation(!expandNavigation)}
                 initial={{ x: "100%", opacity:0 }}
                 animate={{ x:"0%", opacity: 1}}
                 exit= {{ x:"100%", 
@@ -124,7 +131,7 @@ export default function Home() {
                   <a className={styles.navbarSubtext} href="https://github.com/ajiaron" onClick={()=> setExpandNavigation(false)}>
                     Github
                   </a>
-                  <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com" onClick={()=> setExpandNavigation(false)}>
+                  <a className={styles.navbarSubtext} href="mailto:blackprint.unlimited@gmail.com" onClick={()=> setExpandNavigation(false)}>
                     Contact
                   </a>
                 </div>
@@ -370,7 +377,7 @@ export default function Home() {
                   </p>
                 </div>
                 <p className={styles.pricingLeftTitle}>
-                    Join TradesMark.
+                    Join <br/>TradesMark.
                 </p>
                 <div style={{display:"flex", flexDirection:"column", gap:"1.25rem", paddingTop:".875rem"}}>
                   <div className={styles.pricingLeftTab}>
@@ -440,11 +447,11 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.whyContentContainer}>
-              <div className={styles.whyRow}>
+              <div className={(windowSize.width<1024)?styles.servicesRow:styles.whyRow}>
                 <div className={styles.whyItem}>
                   <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
                     <p className={styles.whyTitle}>
-                      <span><Image src={Triangle} alt={"arrow"} objectFit={"cover"} style={{transform:"translateY(2.25px)"}}/></span>Catered to your needs
+                      <span><Triangle style={{transform:"translateY(2.25px)"}} className={styles.triangle}/></span>Catered to your needs
                     </p>
                     <p className={styles.whyContext}>
                       Unlike other marketing companies that have all these services with one price, we let you customize, pick and choose, and build a program that YOU need.
@@ -454,18 +461,18 @@ export default function Home() {
                 <div className={styles.whyItem}>
                   <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
                     <p className={styles.whyTitle}>
-                    <span><Image src={Triangle} alt={"arrow"} objectFit={"cover"} style={{transform:"translateY(2.25px)"}}/></span>We care about your growth
+                    <span><Triangle className={styles.triangle} style={{transform:"translateY(2.25px)"}}/></span>We care about your growth
                     </p>
                     <p className={styles.whyContext}>
                       We like our partners to not only be limited, but winning. In each city we have <span style={{fontWeight:"650", color:"#000"}}>limited spots</span> for each trade to eliminate competition overload when it comes to Advertisement.                    </p>
                   </div>
                 </div>
               </div>
-              <div className={styles.whyRow}>
+              <div className={(windowSize.width <=1024)?styles.servicesRow:styles.whyRow}>
                 <div className={styles.whyItem}>
                   <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
                     <p className={styles.whyTitle}>
-                    <span><Image src={Triangle} alt={"arrow"} objectFit={"cover"} style={{transform:"translateY(2.25px)"}}/></span>We Prioritize You
+                    <span><Triangle className={styles.triangle} style={{transform:"translateY(2.25px)"}}/></span>We Prioritize You
                     </p>
                     <p className={styles.whyContext}>
                       With over half a decade of being in the advertisement space we prioritize taking your business where it&apos;s at, to the level you&apos;ve always dreamed of.                    </p>
@@ -474,7 +481,7 @@ export default function Home() {
                 <div className={styles.whyItem}>
                   <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
                     <p className={styles.whyTitle}>
-                    <span><Image src={Triangle} alt={"arrow"} objectFit={"cover"} style={{transform:"translateY(2.25px)"}}/></span>Partnership Method
+                    <span><Triangle className={styles.triangle} style={{transform:"translateY(2.25px)"}}/></span>Partnership Method
                     </p>
                     <p className={styles.whyContext}>
                       With our advertising services, we don&apos;t make money unless you do, and we provide competitive pricing for branding services.
@@ -482,9 +489,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
             </div>
           </section>
-
           <section className={styles.formSection}>
             <div className={styles.servicesHeaderContainer}>
               <p className={[styles.servicesHeaderText, styles.titleTextAlt].join(' ')}>
@@ -503,9 +510,11 @@ export default function Home() {
                   </p>
                 </div>
                 <div className={styles.formInputContainer}>
+                  {(windowSize.width >= 1024)&&
                   <p className={styles.formHeaderText} style={{color:"#aaa"}}>
                     Form Integration Here
                   </p>
+                  }
                 </div>
                 <span className={styles.formInputButton}>
                   <p className={styles.buttonFormText}>
@@ -527,7 +536,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className={styles.valueContentRight}>
-                  <p className={styles.footerTitle} style={{fontWeight:"400"}}>
+                  <p className={styles.valueSubtext} style={{fontWeight:"400"}}>
                     We offer comprehensive marketing services including content creation, social media management, website design, and ad campaigns.
                   </p>
                 </div>
@@ -536,7 +545,7 @@ export default function Home() {
 
           <section className={styles.faqsSection}>
             <div className={styles.faqsHeaderContainer}>
-              <span className={styles.scribbleContainer}><Image src={Scribble} alt={"scribble"} objectFit={"cover"}/></span>
+              <span className={styles.scribbleContainer}><Scribble/></span>
               <p className={styles.faqsHeaderText}>
                 Frequently Asked Questions
               </p>
@@ -586,28 +595,28 @@ export default function Home() {
           <div className={styles.footerNavContainer}>
             <div className={styles.navbarWrapper}>        
               <span className={styles.navbarTitleContainer} style={{paddingTop:"1px"}}>
-                <Image src={Logo} alt={"logo"} objectFit={'cover'}/>
+                <Logo/>
                 <a className={styles.footerTitle} href="#home">TradesMark</a>
               </span>
 
               <span className={styles.navbarSubtextContainer}>
-                <span className={styles.navbarSubtext} onClick={()=>scrollToId('home')}>
+                <span className={styles.navbarSubtext} style={{color:"#000"}}onClick={()=>scrollToId('home')}>
                   Home
                 </span>
-                <span className={styles.navbarSubtext} onClick={()=>scrollToId('home')}>
+                <span className={styles.navbarSubtext} style={{color:"#000"}} onClick={()=>scrollToId('home')}>
                   Services
                 </span>
-                <span className={styles.navbarSubtext} onClick={()=>scrollToId('projects')}>
+                <span className={styles.navbarSubtext} style={{color:"#000"}} onClick={()=>scrollToId('projects')}>
                   Pricing
                 </span>
-                <a className={styles.navbarSubtext} href="https://github.com/ajiaron">
+                <a className={styles.navbarSubtext} style={{color:"#000"}} href="https://github.com/ajiaron">
                   Why TradesMark
                 </a>
-                <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com">
+                <a className={styles.navbarSubtext} style={{color:"#000"}} href="mailto:aaronjiang3942@gmail.com">
                   FAQ&apos;s
                 </a>
               </span>
-               <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com" style={{alignSelf:"center"}}>
+               <a className={styles.navbarSubtext} style={{color:"#000", alignSelf:"center"}} href="mailto:aaronjiang3942@gmail.com">
                  Contact Us
                </a>
             </div>
@@ -615,4 +624,66 @@ export default function Home() {
       </div>
     </main>
   );
+}
+
+
+{
+  /*
+
+<section className={styles.servicesSection}>
+            <div className={styles.servicesHeaderContainer}>
+              <p className={[styles.servicesHeaderText, styles.titleTextAlt].join(' ')}>
+                Why TradesMark?
+              </p>
+            </div>
+            <div className={styles.servicesContainer}>
+              <div className={styles.whyRow}>
+                <div className={styles.whyItem}>
+                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
+                    <p className={styles.whyTitle}>
+                      <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>Catered to your needs
+                    </p>
+                    <p className={styles.whyContext}>
+                      Unlike other marketing companies that have all these services with one price, we let you customize, pick and choose, and build a program that YOU need.
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.whyItem}>
+                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
+                    <p className={styles.whyTitle}>
+                    <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>We care about your growth
+                    </p>
+                    <p className={styles.whyContext}>
+                      We like our partners to not only be limited, but winning. In each city we have <span style={{fontWeight:"650", color:"#000"}}>limited spots</span> for each trade to eliminate competition overload when it comes to Advertisement.                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.whyRow}>
+                <div className={styles.whyItem}>
+                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
+                    <p className={styles.whyTitle}>
+                    <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>We Prioritize You
+                    </p>
+                    <p className={styles.whyContext}>
+                      With over half a decade of being in the advertisement space we prioritize taking your business where it&apos;s at, to the level you&apos;ve always dreamed of.                    </p>
+                  </div>
+                </div>
+                <div className={styles.whyItem}>
+                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
+                    <p className={styles.whyTitle}>
+                    <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>Partnership Method
+                    </p>
+                    <p className={styles.whyContext}>
+                      With our advertising services, we don&apos;t make money unless you do, and we provide competitive pricing for branding services.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+   */
 }

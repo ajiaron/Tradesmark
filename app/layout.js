@@ -10,18 +10,11 @@ export const metadata = {
   title: "TradesMark",
   description: "TradesMark",
   icons: { icon: "/assets/logo.png", sizes: "any", type: "image/png" },
-  viewport: "width=device-width, initial-scale=1",
-  link: [
-    {
-      rel: "stylesheet",
-      href: "https://fonts.vercel.app/geist-sans.css",
-    },
-  ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={GeistSans.className}>
       <body className={inter.className}>{children}</body>
     </html>
   );

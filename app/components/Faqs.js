@@ -17,8 +17,8 @@ const Faqs = ({title, info}) => {
                 </p>
                 <span>
                     {(!isActive)?
-                    <Image src={Plus} alt={"dropdown"} objectFit={'cover'} style={{userSelect:"none"}}/>:
-                    <Image src={Minus} alt={"dropdown"} objectFit={'cover'} style={{userSelect:"none"}}/>
+                    <Plus style={{userSelect:"none"}}/>:
+                    <Minus style={{userSelect:"none"}}/>
                     }
                 </span>
             </span>

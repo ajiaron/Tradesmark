@@ -1,9 +1,9 @@
 :root {
   --max-width: 1440px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+  --font-mono: ui-monospace, Geist, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -40,7 +40,7 @@
   --card-border-rgb: 131, 134, 135;
 
   // design tokens
-  --default-font:"Geist", "sans-serif";
+  --default-font:Geist, DM Sans;
   --button-radius: 10px;
   --text-hover-active: #3399FF;
   --theme-color:#3399FF;
@@ -76,11 +76,20 @@
   --text-smallest: clamp(.875rem, 2vw, 1rem); // descriptions
 }
 ::-moz-selection { /* firefox */
-  background: #7A68FF77;
+  background: #5fafff77;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('https://fonts.vercel.app/geist-sans.woff2?v=1') format('woff2'),
+       url('https://fonts.vercel.app/geist-sans.woff?v=1') format('woff'),
+       url('https://fonts.vercel.app/geist-sans.ttf?v=1') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
+
 ::selection {
-  background: #7A68FF77;
+  background: #46a2ff77;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -128,6 +137,7 @@ section {
 html {
   overflow-y: hidden;
   overflow-x: hidden;
+  font-synthesis-weight: none;
   max-height: 100vh;
 }
 
@@ -139,6 +149,7 @@ body {
   max-height: 100vh;
   height: 100%;
   background-color: #EFEFEF;
+  font-synthesis-weight: none;
 }
 *:focus {
   outline: none;
