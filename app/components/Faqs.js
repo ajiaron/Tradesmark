@@ -7,7 +7,7 @@ import Minus from '../../public/assets/minus.svg'
 import {motion, AnimatePresence, useMotionValueEvent, useAnimation, inView} from 'framer-motion'
 
 
-const Faqs = ({title, text}) => {
+const Faqs = ({title, info}) => {
     const [isActive, setIsActive] = useState(false)
     return (
         <span className={styles.faqsContentItem} onClick={()=>setIsActive(!isActive)}>
@@ -35,7 +35,7 @@ const Faqs = ({title, text}) => {
                 exit={{height:0}}>
                 <div style={{paddingBottom:"1.5rem"}}>
                     <p className={styles.faqsSubtext} style={{textAlign:"left"}}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        {info}
                     </p>
                 </div>
                 

@@ -316,7 +316,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesTextContainer}>
                     <p className={styles.servicesTitle}>Google Ads</p>
-                    <p className={styles.servicesSubtext}>Our PPC Google advertising offers contractors immediate visibility on search engines, ensuring targeted exposure to potential clients actively searching for your services</p>
+                    <p className={styles.servicesSubtext}>Our PPC Google advertising offers contractors immediate visibility on search engines, ensuring targeted exposure to potential clients actively searching for your services.</p>
                   </div>
                 </div>
               </div>
@@ -336,7 +336,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesTextContainer}>
                     <p className={styles.servicesTitle}>Website Design Development</p>
-                    <p className={styles.servicesSubtext}>Our professionally designed websites enhances visibility, attracts new clients, and boosts customer trust, ultimately driving rapid business growth for all contractors</p>
+                    <p className={styles.servicesSubtext}>Our professionally designed websites enhances visibility, attracts new clients, and boosts customer trust, ultimately driving rapid business growth for all contractors.</p>
                   </div>
                 </div>
                 <div className={styles.servicesItem}>
@@ -545,12 +545,18 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.faqsContent}>
-              <Faqs title={"How fast can TradesMark begin with a client?"}/>
-              <Faqs title={"What sets TradesMark apart against competitors?"}/>
-              <Faqs title={"Does TradesMark offer consultation before purchase?"}/>
-              <Faqs title={"How can TradesMark help with my small business?"}/>
-              <Faqs title={"Is there a trial period?"}/>
-              <Faqs title={"Are there any refunds?"}/>
+              <Faqs title={"How fast can TradesMark begin with a client?"}
+              info={'If you qualify to work with TradesMark after the consultation, we can start immediately.'}/>
+              <Faqs title={"What sets TradesMark apart against competitors?"}
+              info={'We provide only what you need. Unlike other marketing companies that charge 1 price for 5 services when you really only need 2 are not the way to go. TradesMark finally brings contractors an actual fully customizable program.'}/>
+              <Faqs title={"Does TradesMark offer consultation before purchase?"}
+              info={'Yes, Trademark will always provide a consultation before every purchase to ensure qualification before working together to enhance satisfaction and success on both ends.'}/>
+              <Faqs title={"How can TradesMark help with my small business?"}
+              info={'We want our contractors to focus on what they do best, which is the service they provide. We take on the responsibility of filling all the holes on the backend that is necessary for any business, small or big, to win.'}/>
+              <Faqs title={"Is there a trial period?"}
+              info={'Yes, depending on your needed services that we provide there is a trial period. Each service is different and differs depending on the package you build.'}/>
+              <Faqs title={"Are there any refunds?"}
+              info={'Refunds? We dont make money unless you do!'}/>
             </div>
           </section>
 

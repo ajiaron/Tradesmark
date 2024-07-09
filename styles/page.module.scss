@@ -1385,17 +1385,35 @@
 
 
 @media (max-width: 390px) {
+  .servicesHeaderContainer {
+    width: 80%;
+  }
   .servicesContainer {
     margin-top: 3.625rem;
     width: 83%;
     height: fit-content;
     display: flex;
     //background-color: red;
-    gap:58px;
+    gap:2rem;
     flex-direction: column;
   }
   .servicesRow {
-    flex-direction: row;
+    gap:2rem;
+    width: 100%;
+    //justify-content: center;
+    height: auto;
+    //display: flex;
+    flex-direction: column;
+    //justify-content: space-between;
+  }
+  .servicesItem {
+    width: 100%;
+    padding-left:1.75rem;
+    height: 100%;
+    gap:1rem;
+    padding-top: 1.5rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1.5rem;
   }
   .pricingContentContainer {
     margin-top: 5.625rem;
@@ -1409,7 +1427,7 @@
     margin-right:auto;
   }
   .pricingContentContainer {
-    width: 100%;
+    width: 95%;
     gap:2rem;
   }
   .pricingContentLeft {
@@ -2104,8 +2122,35 @@
 }
 }
 @media (min-width: 391px) and (max-width: 480px) {
-  .servicesRow {
+  .servicesHeaderContainer {
+    width: 80%;
+  }
+  .servicesContainer {
+    margin-top: 3.625rem;
+    width: 83%;
+    height: fit-content;
+    display: flex;
+    //background-color: red;
+    gap:48px;
     flex-direction: column;
+  }
+  .servicesRow {
+    gap:2rem;
+    width: 100%;
+    //justify-content: center;
+    height: auto;
+    //display: flex;
+    flex-direction: column;
+    //justify-content: space-between;
+  }
+  .servicesItem {
+    width: 100%;
+    padding-left:1.75rem;
+    height: 100%;
+    gap:1rem;
+    padding-top: 1.625rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1.5rem;
   }
   .pricingContentContainer {
     margin-top: 5.625rem;
@@ -2115,7 +2160,7 @@
     justify-content: space-between;
     height: auto;
     gap:2rem;
-    width: 85%;
+    width: 95%;
     margin-left: auto;
     margin-right:auto;
   }
