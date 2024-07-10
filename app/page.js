@@ -296,6 +296,72 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.servicesContainer}>
+              {(windowSize.width > 768 && windowSize.width <= 1024)?
+                <>
+              <div className={styles.servicesRow}>
+                <div className={styles.servicesItem}>
+                  <div className={styles.servicesIcon}>
+
+                  </div>
+                  <div className={styles.servicesTextContainer}>
+                    <p className={styles.servicesTitle}>Email {'&'} SMS Marketing</p>
+                    <p className={styles.servicesSubtext}>
+                      SMS ensures instant reach and high open rates, while Email Marketing fosters relationships through personalized content, driving brand loyalty and measurable business growth.
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.servicesItem}>
+                  <div className={styles.servicesIcon}>
+
+                  </div>
+                  <div className={styles.servicesTextContainer}>
+                    <p className={styles.servicesTitle}>Reputation Management</p>
+                    <p className={styles.servicesSubtext}>By proactively addressing feedback and enhancing online credibility, your business will strengthen customer trust, attract more clients, and improve overall brand perception.</p>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.servicesRow}>
+                <div className={styles.servicesItem}>
+                  <div className={styles.servicesIcon}>
+
+                  </div>
+                  <div className={styles.servicesTextContainer}>
+                    <p className={styles.servicesTitle}>Google Ads</p>
+                    <p className={styles.servicesSubtext}>Our PPC Google advertising offers contractors immediate visibility on search engines, ensuring targeted exposure to potential clients actively searching for your services.</p>
+                  </div>
+                </div>
+                <div className={styles.servicesItem}>
+                  <div className={styles.servicesIcon}>
+
+                  </div>
+                  <div className={styles.servicesTextContainer}>
+                    <p className={styles.servicesTitle}>Search Engine Optimization</p>
+                    <p className={styles.servicesSubtext}>Taking your custom website to the next level. Ranking your website above your competitors across all search engines, bringing in more projects.</p>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.servicesRow}>
+                <div className={styles.servicesItem}>
+                  <div className={styles.servicesIcon}>
+
+                  </div>
+                  <div className={styles.servicesTextContainer}>
+                    <p className={styles.servicesTitle}>Website Design Development</p>
+                    <p className={styles.servicesSubtext}>Our professionally designed websites enhances visibility, attracts new clients, and boosts customer trust, ultimately driving rapid business growth for all contractors.</p>
+                  </div>
+                </div>
+                <div className={styles.servicesItem}>
+                  <div className={styles.servicesIcon}>
+
+                  </div>
+                  <div className={styles.servicesTextContainer}>
+                    <p className={styles.servicesTitle}>Graphic Design Content</p>
+                    <p className={styles.servicesSubtext}>Our in-house graphic designs are ready to service your vision, ranging from flyers, social media posts, to logo revisions and branding packages.</p>
+                  </div>
+                </div>
+              </div>
+              </>
+              :<>
               <div className={styles.servicesRow}>
                 <div className={styles.servicesItem}>
                   <div className={styles.servicesIcon}>
@@ -356,8 +422,11 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              </>
+              }
 
             </div>
+            
           </section>
           <section className={styles.pricingSection}>
             <div className={styles.servicesHeaderContainer}>
@@ -447,7 +516,7 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.whyContentContainer}>
-              <div className={(windowSize.width<1024)?styles.servicesRow:styles.whyRow}>
+              <div className={(windowSize.width<=1024)?styles.servicesRow:styles.whyRow}>
                 <div className={styles.whyItem}>
                   <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
                     <p className={styles.whyTitle}>
