@@ -8,6 +8,7 @@
   flex:1;
   overflow-x: hidden;
   overflow-y: auto;
+  //display: flex;
 }
 .canvasContainer {
   max-height: 100%;
@@ -37,6 +38,8 @@
   background-position: 50% center; /* adjust this if needed */
   background-repeat: no-repeat; /* ensures the image does not repeat */
   //background-color: red;
+  margin-left: auto;
+  margin-right: auto;
 }
 // text styles
 .heroHeaderText {
@@ -311,6 +314,9 @@
   }
 }
 .navbarContainer {
+  max-width: var(--default-width);
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 3.25rem;
   //padding-top: 3.25rem;
   width: 100%;
@@ -416,14 +422,20 @@
 // hero container styles
 
 .heroSectionContainer {
+  //max-width: var(--default-width);
+  //margin-left: auto;
+  //margin-right: auto;
   display: flex;
   //height: fit-content;
   //background-color: red;
  // height: 90.45%;
- overflow: visible;
-  height:fit-content;
- //height: 33.48rem;
+  overflow: visible;
+  height: fit-content;
+ // background-color: red;
   width: 100%;
+  //align-items: center;
+
+  
   padding-left: 7.625rem;
   //margin-top: 6.3rem;
  // background-color: red;
@@ -510,6 +522,8 @@
 // about section
 
 .aboutSection {
+  max-width: var(--default-width);
+
   width: 100%;
   transform: translateY(-50%);
   min-height: fit-content;
@@ -547,6 +561,8 @@
 
 // frameworks section
 .frameworksSection {
+
+
   margin-top: 22.5%;
   width: 100%;
   max-height: auto;
@@ -648,6 +664,7 @@
 // projects section
 
 .projectsSection {
+
   width: 100%;
   height: fit-content;
   display: flex;
@@ -832,6 +849,7 @@
 // services
 
 .servicesSection {
+
   width: 100%;
   height: fit-content;
   display: flex;
@@ -903,6 +921,9 @@
 
 // pricing section
 .pricingSection {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--default-width);
   width: 100%;
   height: fit-content;
   display: flex;
@@ -1148,6 +1169,7 @@
 // form section
 .formSection {
   width: 100%;
+
   height: fit-content;
   display: flex;
   padding-bottom: 2rem;
@@ -1225,6 +1247,9 @@
 
 // faqs section
 .faqsSection {
+  max-width: var(--default-width);
+  margin-left: auto;
+  margin-right: auto;
   height:fit-content;
   width: 100%;
   display: flex;
@@ -1292,6 +1317,8 @@
 
 // value section
 .valueSection {
+  //max-width: var(--default-width);
+
   width: 100%;
   height: fit-content;
   display: flex;
@@ -1301,6 +1328,8 @@
   justify-content: center;
 }
 .valueContent {
+  max-width: var(--default-width);
+
   width: 83.27%;
   display: flex;
   align-items: center;
@@ -4550,3 +4579,49 @@
   }
 }
 
+@media (min-width: 1480px) {
+  .heroSectionContainer {
+    max-width: var(--default-width);
+    margin-left: auto;
+    margin-right: auto;
+    //height: 50vh;
+    display: flex;
+    overflow: visible;
+    width: 100%;
+    align-items: center; 
+    padding-left: 7.625rem;
+  }
+  .heroTextContainer {
+    width: 50%;
+    height: fit-content;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top:calc(8rem + 2.5%);
+  
+    animation-name: animate-in;
+    animation-timing-function: ease;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  // frameworks section
+.frameworksSection {
+
+
+  margin-top: 20.5%;
+  width: 100%;
+  max-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  justify-content: center;
+  background-color: #1D2022;
+
+  padding-bottom: 7.5rem;
+
+}
+
+}
