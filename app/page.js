@@ -9,6 +9,7 @@ import Triangle from '../public/assets/triangle.svg'
 import Scribble from '../public/assets/scribble.svg'
 import Logo from '../public/assets/logo.svg'
 import Faqs from "./components/Faqs";
+import { FaArrowRight } from "react-icons/fa6";
 
 
 export default function Home() {
@@ -296,7 +297,7 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.servicesContainer}>
-              {(windowSize.width > 768 && windowSize.width <= 1024)?
+              {(windowSize.width > 768 && windowSize.width <= 1280)?
                 <>
               <div className={styles.servicesRow}>
                 <div className={styles.servicesItem}>
@@ -448,22 +449,26 @@ export default function Home() {
                 <p className={styles.pricingLeftTitle}>
                     Join <br/>TradesMark.
                 </p>
-                <div style={{display:"flex", flexDirection:"column", gap:"1.25rem", paddingTop:".875rem"}}>
+                <div style={{display:"flex", flexDirection:"column", gap:"1.25rem", paddingTop:".875rem"}} className={styles.pricingLeftTabContainer}>
                   <div className={styles.pricingLeftTab}>
-                    <p className={styles.pricingContentSubtitle} style={{fontSize:"15px"}}>
-                      Book a 15-min appointment
-                    </p>
-                    <p className={styles.pricingContentText} style={{fontWeight:"300"}}>
-                      Learn more about how TradesMark works.
-                    </p>
+                    <div className={styles.pricingLeftTabTextWrapper}>
+                      <p className={styles.pricingContentSubtitle} style={{fontSize:"15px"}}>
+                        Book a 15-min appointment
+                      </p>
+                      <p className={styles.pricingContentText} style={{fontWeight:"300"}}>
+                        Learn more about how TradesMark works.
+                      </p>
+                    </div>
                   </div>
                   <div className={styles.pricingLeftTab}>
-                    <p className={styles.pricingContentSubtitle} style={{fontSize:"15px"}}>
-                      Contact Us for Custom Pricing
-                    </p>
-                    <p className={styles.pricingContentText} style={{fontWeight:"300"}}>
-                      Get information how we can help you find a price that works for you.
-                    </p>
+                    <div className={styles.pricingLeftTabTextWrapper}>
+                      <p className={styles.pricingContentSubtitle} style={{fontSize:"15px"}}>
+                        Contact Us for Custom Pricing
+                      </p>
+                      <p className={styles.pricingContentText} style={{fontWeight:"300"}}>
+                        Get information how we can help you find a price that works for you.
+                      </p>
+                    </div>
                   </div>
                 </div>
           
@@ -516,7 +521,7 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.whyContentContainer}>
-              <div className={(windowSize.width<=1024)?styles.servicesRow:styles.whyRow}>
+              <div className={(windowSize.width<=1280)?styles.servicesRow:styles.whyRow}>
                 <div className={styles.whyItem}>
                   <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
                     <p className={styles.whyTitle}>
@@ -537,7 +542,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className={(windowSize.width <=1024)?styles.servicesRow:styles.whyRow}>
+              <div className={(windowSize.width <=1280)?styles.servicesRow:styles.whyRow}>
                 <div className={styles.whyItem}>
                   <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
                     <p className={styles.whyTitle}>
@@ -662,13 +667,13 @@ export default function Home() {
           </section>
 
           <div className={styles.footerNavContainer}>
-            <div className={styles.navbarWrapper}>        
-              <span className={styles.navbarTitleContainer} style={{paddingTop:"1px"}}>
+            <div className={styles.navbarWrapper} style={{width:(windowSize.width > 480)?"90%":"85%"}} href="#home">        
+              <a className={styles.navbarTitleContainer} style={{paddingTop:"1px", alignItems:"center"}}>
                 <Logo/>
                 <a className={styles.footerTitle} href="#home">TradesMark</a>
-              </span>
+              </a>
 
-              <span className={styles.navbarSubtextContainer}>
+              <span className={[styles.navbarSubtextContainer, styles.footerSubtextContainer].join(' ')}>
                 <span className={styles.navbarSubtext} style={{color:"#000"}}onClick={()=>scrollToId('home')}>
                   Home
                 </span>
