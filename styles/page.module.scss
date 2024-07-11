@@ -11,32 +11,33 @@
   //display: flex;
 }
 .canvasContainer {
-  max-height: 100%;
- // height: fit-content;
-  min-width: 1930px;
-  min-height: 100%;
-  //min-height: 5396px;
-  aspect-ratio: 1440/779;
- // background-color: red;
- overflow: hidden;
   width: 100%;
-  position: absolute;
-  //background-image: url('/assets/bloblayer5.svg');
-  background-size: cover; /* or use 'contain' if you want the entire image to fit within the container */
-  background-position: center; /* adjust this if needed */
-  background-repeat: no-repeat; /* ensures the image does not repeat */
+  overflow-x: hidden;
+  height: fit-content;
+  display: flex;
+  //mix-blend-mode:difference;
+  pointer-events: none;
+  z-index: 2;
+  flex-direction: column;
+  position: relative;
+  background-image: url('/assets/canvas2.svg');
+  background-size: auto; 
+  background-position: 67% 0%;
+  background-repeat: no-repeat; 
+  //background-color: red;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .contentContainer {
   width: 100%;
   overflow-x: hidden;
   height: fit-content;
   display: flex;
   //mix-blend-mode:difference;
+  z-index: 1;
   flex-direction: column;
-  //background-image: url('/assets/bloblayer6.svg');
-  background-size: cover; /* or use 'contain' if you want the entire image to fit within the container */
-  background-position: 50% center; /* adjust this if needed */
-  background-repeat: no-repeat; /* ensures the image does not repeat */
+
   //background-color: red;
   margin-left: auto;
   margin-right: auto;
@@ -448,6 +449,10 @@
   flex-direction: column;
   align-items: flex-start;
   margin-top:7.5rem;
+  transform: translateY(6%);
+  opacity: 0;
+}
+.animateIn {
 
   animation-name: animate-in;
   animation-timing-function: ease;
@@ -568,11 +573,12 @@
   max-height: auto;
   display: flex;
   flex-direction: column;
+  z-index: 0;
   align-items: center;
   overflow: visible;
   justify-content: center;
   background-color: #1D2022;
-
+  
   padding-bottom: 7.5rem;
 
 }
@@ -1454,6 +1460,15 @@
 
 
 @media (max-width: 390px) {
+  .canvasContainer {
+    background-image: url('/assets/canvasalt6.svg');
+    background-size: auto; 
+    background-position: 58% 0%;
+    background-repeat: no-repeat; 
+    //background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .formContent {
     margin-top: 3.25rem;
     width: 90%;
@@ -2335,6 +2350,15 @@
 }
 }
 @media (min-width: 391px) and (max-width: 480px) {
+  .canvasContainer {
+    background-image: url('/assets/canvasalt7.svg');
+    background-size: auto; 
+    background-position: 59% 0%;
+    background-repeat: no-repeat; 
+    //background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .formContent {
     margin-top: 3.25rem;
     width: 90%;
@@ -3086,6 +3110,28 @@
     display: none;
   }
 }
+@media (min-width: 481px) and (max-width: 677px) {
+  .canvasContainer {
+    background-image: url('/assets/canvasalt6.svg');
+    background-size: auto; 
+    background-position: 61% 0%;
+    background-repeat: no-repeat; 
+    //background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 678px) and (max-width: 768px) {
+  .canvasContainer {
+    background-image: url('/assets/canvasalt5.svg');
+    background-size: auto; 
+    background-position: 59% 0%;
+    background-repeat: no-repeat; 
+    //background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 @media (min-width: 481px) and (max-width: 768px) {
   .formContent {
@@ -3677,6 +3723,16 @@
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
+    .canvasContainer {
+    background-image: url('/assets/canvasalt4.svg');
+    background-size: cover; 
+    background-position: 67% 0%;
+    background-repeat: no-repeat; 
+    //background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
   .formContent {
     margin-top: 3.25rem;
     width: 80%;
@@ -4150,7 +4206,22 @@
       display: none;
     }
 }
+@media (min-width: 1281px) and (max-width: 1322px) {
+  .heroTextContainer {
+    width: 52.5%;
+  }
+}
 @media (min-width: 1025px) and (max-width: 1280px) {
+  .canvasContainer {
+    background-image: url('/assets/canvasalt.svg');
+    background-size: cover; 
+    background-position: 67% 0%;
+    background-repeat: no-repeat; 
+    //background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
   .valueContent {
     width: 83.27%;
     flex-direction: column;
@@ -4331,7 +4402,7 @@
     .heroTextContainer {
       width: 65%;
       padding-left: 0;
-      margin-top: 5rem;
+      margin-top: 5.75rem;
     }
     .heroSubtextContainer {
       margin-top: 1.25rem;
@@ -4580,6 +4651,15 @@
 }
 
 @media (min-width: 1480px) {
+  .canvasContainer {
+    background-image: url('/assets/canvasalt.svg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    //background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .heroSectionContainer {
     max-width: var(--default-width);
     margin-left: auto;

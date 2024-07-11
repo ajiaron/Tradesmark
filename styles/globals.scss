@@ -255,7 +255,7 @@ p {
   :root {
     --title-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
     --title-alt-gradient: -webkit-linear-gradient(0deg, #0599FF, #316BF4);
-     --text-hero-header: clamp(3rem, 6.2vw, 5rem); // hero header
+     --text-hero-header: clamp(3rem, 6vw, 5rem); // hero header
      --text-xl: clamp(3.125rem, 5vw, 54px); // recent projects header / footer
      --text-largest: clamp(2.625rem, 4.5vw, 50px); // about header
      --text-large-header: clamp(2.5rem, 4.5vw, 47.32px); // milestone, springboard, etc
