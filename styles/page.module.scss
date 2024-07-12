@@ -20,7 +20,7 @@
   z-index: 2;
   flex-direction: column;
   position: relative;
-  background-image: url('/assets/canvas2.svg');
+  background-image: url('/assets/canvas2.png');
   background-size: auto; 
   background-position: 67% 0%;
   background-repeat: no-repeat; 
@@ -565,6 +565,14 @@
 }
 
 // frameworks section
+.frameworksCanvas {
+  position: absolute;
+  width: 100%;
+  height: calc(100%);
+  transform: translateY(3.75rem);
+  z-index: -1;
+  background-color: #1D2022;
+}
 .frameworksSection {
 
 
@@ -572,15 +580,15 @@
   width: 100%;
   max-height: auto;
   display: flex;
+  position: relative;
   flex-direction: column;
-  z-index: 0;
+  z-index: 2;
   align-items: center;
   overflow: visible;
   justify-content: center;
-  background-color: #1D2022;
-  
+  //background-color: #1D2022;
   padding-bottom: 7.5rem;
-
+  mix-blend-mode:luminosity;
 }
 .frameworksHeaderContainer {
   display: flex;
@@ -627,9 +635,10 @@
   border-radius: 1rem;
   display: flex;
   align-items: center;
+  z-index: 3;
   justify-content: center;
   transition: all .15s linear;
-  display: none;
+  //display: none;
   filter: var(--default-shadow);
   background-image: var(--button-gradient);
 }
@@ -747,7 +756,7 @@
   width: 100%;
   height: 100%;
   align-self: center;
-  background-color: #eee;
+  background-color:#eaeaea;
 }
 .projectsContentImageAlt {
   height: 30.6875rem;

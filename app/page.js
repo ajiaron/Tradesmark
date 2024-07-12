@@ -11,6 +11,13 @@ import Logo from '../public/assets/logo.svg'
 import Faqs from "./components/Faqs";
 import { FaArrowRight } from "react-icons/fa6";
 import Hero from '../public/assets/hero.png'
+import Bv from '../public/assets/bv2.png'
+import Bvexterior from '../public/assets/bvexterior2.png'
+import Steelnet from '../public/assets/steelnet2.png'
+import Lightning from '../public/assets/lightning.png'
+import Star from '../public/assets/star.png'
+import Person from '../public/assets/person.png'
+
 export default function Home() {
   const [calenderActive, setCalenderActive] = useState(false)
   const [expandNavigation, setExpandNavigation] = useState(false)
@@ -177,6 +184,7 @@ export default function Home() {
             
         
             <section className={styles.frameworksSection}>
+
             <div className={styles.aboutSection}>
               <div className={styles.aboutContainer}>
                 {(windowSize.width > 768) ?
@@ -206,18 +214,23 @@ export default function Home() {
               </div>
 
             </div>
+            
               <div className={styles.frameworksHeaderContainer}>
                 <p className={[styles.toolsHeaderText, styles.titleTextAlt].join(' ')}>
                   Our Mission
                 </p>
             
               </div>
+              <div className={styles.frameworksCanvas}>
+
+</div>
               <div className={styles.frameworksContentContainer}>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                    <div className={styles.frameworksImage}>
                   
-                    </div>
+                      <Image src={Lightning} alt='person' objectFit={'cover'} />
+
+               
                   </div>
                   <p className={styles.frameworksHeader}>
                     Partnering For Growth
@@ -228,9 +241,9 @@ export default function Home() {
                 </div>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                    <div className={styles.frameworksImage}>
-                  
-                    </div>
+                 
+                      <Image src={Star} alt='person' objectFit={'cover'} />
+             
                   </div>
                   <p className={styles.frameworksHeader}>
                     Elavating Brands
@@ -241,9 +254,9 @@ export default function Home() {
                 </div>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                    <div className={styles.frameworksImage}>
+           
+                      <Image src={Person} alt='person' objectFit={'cover'}/>
                   
-                    </div>
                   </div>
                   <p className={styles.frameworksHeader}>
                   Delivering Impact
@@ -252,6 +265,7 @@ export default function Home() {
                   We have a commitment towards driving forward tangible and meaningful results for blue-collar companies, ultimately contributing to your overall success and growth                </p>
                 </div>
               </div>
+                   
             </section>
             <section className={styles.projectsSection}>
                 <div className={styles.projectsHeaderContainer} id={'projects'}>
@@ -271,16 +285,18 @@ export default function Home() {
                   <div className={styles.projectsContentWrapper}>
                     <div className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
+                        <Image src={Bv} alt={"bvexterior flyer"} objectFit={'cover'} fill style={{padding:"4px"}}/>
+                      </div>
+                    </div>
+                    <div className={styles.projectsContentImage}>
+                      <div className={styles.projectsContentImageInner}>
+                        <Image src={Bvexterior} alt={"bvexterior site"} objectFit={'cover'} fill style={{padding:"4px"}}/>
 
                       </div>
                     </div>
                     <div className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
-
-                      </div>
-                    </div>
-                    <div className={styles.projectsContentImage}>
-                      <div className={styles.projectsContentImageInner}>
+                        <Image src={Steelnet} alt={"steelnet flyer"} objectFit={'cover'} fill  style={{padding:"4px"}}/>
 
                       </div>
                     </div>
