@@ -19,6 +19,8 @@ import Star from '../public/assets/star.png'
 import Person from '../public/assets/person.png'
 
 export default function Home() {
+  const scrollRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0)
   const [calenderActive, setCalenderActive] = useState(false)
   const [expandNavigation, setExpandNavigation] = useState(false)
   const [windowSize, setWindowSize] = useState({
@@ -27,7 +29,6 @@ export default function Home() {
   });
   const [animation, setAnimation] = useState(false);
   const navbarRef = useRef(null);
-  const mainRef = useRef(null);
   const titleRef = useRef(null);
   const navpaneRef = useRef(null);
   const contentRef = useRef(null);
@@ -64,9 +65,18 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        setScrollY(scrollRef.current.scrollTop)
+      }
+    };
+    const div = scrollRef.current;
+    div.addEventListener('scroll', handleScroll);
+    return () => div.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <main className={styles.main} ref={mainRef}>
+    <main className={styles.main} ref={scrollRef}>
       <div className={styles.canvasContainer}>
         <div className={styles.contentContainer} ref={contentRef}>
             <div ref={navbarRef} className={styles.navbarContainer}>
@@ -222,8 +232,7 @@ export default function Home() {
             
               </div>
               <div className={styles.frameworksCanvas}>
-
-</div>
+              </div>
               <div className={styles.frameworksContentContainer}>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
