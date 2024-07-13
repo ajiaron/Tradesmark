@@ -4,8 +4,8 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   const { fullName, businessName, phoneNumber, email } = await request.json();
-  console.log('EMAIL_USER:', process.env.EMAIL_USER);
-  console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
+  console.log('EMAIL_USER:', process.env.NEXT_PUBLIC_EMAIL_USER);
+  console.log('EMAIL_PASS:', process.env.NEXT_PUBLIC_EMAIL_PASS);
 
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
     return NextResponse.json({ message: 'Missing environment variables' }, { status: 500 });
