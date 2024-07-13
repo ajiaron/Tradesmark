@@ -248,7 +248,7 @@ export default function Home() {
                     </span>
                     <span style={{color:"#000"}}
                     className={styles.navbarSubtext} onClick={()=>scrollToId('faqs')}>
-                      FAQ's
+                      FAQ&apos;s
                     </span>
                     <a style={{color:"#000"}} href="mailto:blackprint.unlimited@gmail.com"
                     className={styles.navbarSubtext} onClick={()=> setExpandNavigation(false)}>
