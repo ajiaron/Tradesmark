@@ -387,20 +387,20 @@ export default function Home() {
                   className={styles.projectsContentWrapper} ref={carouselRef}>
                     <span className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
-                        {/*<Image src={Bv} alt={"bvexterior flyer"} objectFit={'cover'} fill style={{padding:"4px"}} quality={100}/>*/}
-                        <BVFlyerComponent width={windowSize.width}/>
+                        <Image src={Bv} alt={"bvexterior flyer"} objectFit={'cover'} fill style={{padding:"4px"}} quality={100} className={styles.projectImage}/>
+                        {/*<BVFlyerComponent width={windowSize.width}/>*/}
                       </div>
                     </span>
                     <span className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
-                        {/*<Image src={Bvexterior} alt={"bvexterior site"} objectFit={'cover'} fill style={{padding:"4px"}} quality={100}/>*/}
-                        <BVExteriorComponent width={windowSize.width}/>
+                        {<Image src={Bvexterior} alt={"bvexterior site"} objectFit={'cover'} fill style={{padding:"4px"}} quality={100} className={styles.projectImage}/>}
+                        {/*<BVExteriorComponent width={windowSize.width}/>*/}
                       </div>
                     </span>
                     <span className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
-                        {/*<Image src={Steelnet} alt={"steelnet flyer"} objectFit={'cover'} fill  style={{padding:"4px"}}/>*/}
-                        <SteelnetComponent width={windowSize.width}/>
+                        {<Image src={Steelnet} alt={"steelnet flyer"} objectFit={'cover'} fill  style={{padding:"4px"}} className={styles.projectImage}/>}
+                        {/*<SteelnetComponent width={windowSize.width}/>*/}
                       </div>
                     </span>
                   </motion.div>
