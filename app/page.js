@@ -17,38 +17,91 @@ import Steelnet from '../public/assets/steelnet2.png'
 import Lightning from '../public/assets/lightning.png'
 import Star from '../public/assets/star.png'
 import Person from '../public/assets/person.png'
+import BVFlyerComponent from "./components/BVFlyer";
+import BVExteriorComponent from "./components/BVExterior";
+import SteelnetComponent from "./components/Steelnet";
+
 
 export default function Home() {
   const scrollRef = useRef(null);
   const [scrollY, setScrollY] = useState(0)
-  const [calenderActive, setCalenderActive] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [expandNavigation, setExpandNavigation] = useState(false)
+
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
   });
+  const [carouselTop, setCarouselTop] = useState(0);
   const [animation, setAnimation] = useState(false);
   const navbarRef = useRef(null);
   const titleRef = useRef(null);
   const navpaneRef = useRef(null);
   const contentRef = useRef(null);
-  // #7A68FF
-  const stokeColor = '#7A68FF';
-  useEffect(() => {
-    const font = new FontFace('Geist Sans', 'url(https://fonts.vercel.app/geist-sans.woff2)');
-    font.load().then(function (loadedFont) {
-      document.fonts.add(loadedFont);
+  const carouselRef = useRef(null);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    businessName: '',
+    phoneNumber: '',
+    email: '',
+  });
+  const [formError, setFormError] = useState({
+    fullName: '',
+    businessName: '',
+    phoneNumber: '',
+    email: '',
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false)
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-  }, []);
-  const scrollToId = (id, close) => {
-    if (close) {
-      setExpandNavigation(false)
+  };
+  const handleSubmit = async (e) => {
+    setLoading(true)
+    const { fullName, businessName, phoneNumber, email } = formData;
+    if (!fullName || !businessName || !phoneNumber || !email) {
+      setFormError({
+        ...formError,
+        fullName:(!fullName)?"missing":"",
+        businessName:(!businessName)?"missing":"",
+        phoneNumber:(!phoneNumber)?"missing":"",
+        email:(!email)?"missing":""
+      });
+      return;
+    } 
+    e.preventDefault();
+    const response = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    const result = await response.json();
+    if (result) {
+      setFormSubmitted(true)
+      setLoading(false)
     }
+  };
+    
+  const scrollToId = (id) => {
+    setExpandNavigation(false)
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      const rect = carouselRef.current.getBoundingClientRect();
+      const scrollTop = window.scrollY || window.pageYOffset;
+      setCarouselTop(rect.top + scrollTop);
+    }
+  }, [windowSize, scrollY]);
+
   useEffect(() => {
     setAnimation(true);
   }, []);
@@ -75,10 +128,47 @@ export default function Home() {
     div.addEventListener('scroll', handleScroll);
     return () => div.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const navpane = navpaneRef.current;
+    const main = scrollRef.current;
+    const content = contentRef.current;
+    const initialTop = 2.3 * 16;
+    const shrinkTop = 0;
+    const handleScroll = () => {
+      if (main.scrollTop > initialTop) {
+        if (expandNavigation) {
+          navpane.style.top = `${64+shrinkTop}px`;
+        }
+      } else {
+        if (expandNavigation) {
+          navpane.style.top = `${64+initialTop - main.scrollTop}px`;
+        }
+      }
+    };
+    if (expandNavigation) {
+      main.style.overflowY = 'hidden'
+      content.style.overflowY = 'hidden'
+      document.body.style.overflow = 'hidden';
+      if (main.scrollTop > initialTop) {
+        navpane.style.top = `${64+shrinkTop}px`;
+      } else {
+        navpane.style.top = `${64+initialTop - main.scrollTop}px`;
+      }
+    } else {
+      document.body.style.overflowY = 'auto';
+      main.style.overflowY = 'auto'
+      content.style.overflowY = 'auto'
+    }
+    main.addEventListener('scroll', handleScroll);
+    return () => {
+      main.removeEventListener('scroll', handleScroll);
+    };
+  }, [windowSize.width, expandNavigation]);
   return (
-    <main className={styles.main} ref={scrollRef}>
-      <div className={styles.canvasContainer}>
-        <div className={styles.contentContainer} ref={contentRef}>
+    <main className={styles.main} ref={scrollRef}> 
+      <div className={[styles.canvasContainer, `${animation ? styles.animateCanvas : ''}`].join(' ')}>
+        <div className={styles.contentContainer} ref={contentRef} id={"home"}>
             <div ref={navbarRef} className={styles.navbarContainer}>
               <div className={styles.navbarWrapper}>        
                 <span className={styles.navbarTitleContainer} >
@@ -98,21 +188,21 @@ export default function Home() {
                   <span className={styles.navbarSubtext} onClick={()=>scrollToId('home')}>
                     Home
                   </span>
-                  <span className={styles.navbarSubtext} onClick={()=>scrollToId('home')}>
+                  <span className={styles.navbarSubtext} onClick={()=>scrollToId('services')}>
                     Services
                   </span>
-                  <span className={styles.navbarSubtext} onClick={()=>scrollToId('projects')}>
+                  <span className={styles.navbarSubtext} onClick={()=>scrollToId('pricing')}>
                     Pricing
                   </span>
-                  <a className={styles.navbarSubtext} href="https://github.com/ajiaron">
+                  <a className={styles.navbarSubtext} onClick={()=>scrollToId('why')}>
                     Why TradesMark
                   </a>
-                  <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com">
+                  <a className={styles.navbarSubtext} onClick={()=>scrollToId('faqs')}>
                     FAQ&apos;s
                   </a>
               
                 </span>
-                <a className={styles.navbarSubtext} href="mailto:aaronjiang3942@gmail.com" style={{alignSelf:"center"}}>
+                <a className={styles.navbarSubtext} href="mailto:blackprint.unlimited@gmail.com" style={{alignSelf:"center"}}>
                   Contact Us
                 </a>
                 </>
@@ -140,17 +230,29 @@ export default function Home() {
                 }}
                 ref={navpaneRef}>
                   <div className={styles.navigationPaneContent}>
-                    <span className={styles.navbarSubtext} onClick={()=>scrollToId('home', true)}>
+                    <span style={{color:"#000"}}
+                    className={styles.navbarSubtext} onClick={()=>scrollToId('home')}>
                       Home
                     </span>
-                    <span className={styles.navbarSubtext} onClick={()=>scrollToId('projects', true)}>
-                      Recent Projects
+                    <span style={{color:"#000"}}
+                    className={styles.navbarSubtext} onClick={()=>scrollToId('services')}>
+                      Services
                     </span>
-                    <a className={styles.navbarSubtext} href="https://github.com/ajiaron" onClick={()=> setExpandNavigation(false)}>
-                      Github
-                    </a>
-                    <a className={styles.navbarSubtext} href="mailto:blackprint.unlimited@gmail.com" onClick={()=> setExpandNavigation(false)}>
-                      Contact
+                    <span style={{color:"#000"}}
+                    className={styles.navbarSubtext} onClick={()=>scrollToId('pricing')}>
+                      Pricing
+                    </span>
+                    <span style={{color:"#000"}}
+                    className={styles.navbarSubtext} onClick={()=>scrollToId('why')}>
+                      Why TradesMark
+                    </span>
+                    <span style={{color:"#000"}}
+                    className={styles.navbarSubtext} onClick={()=>scrollToId('faqs')}>
+                      FAQ's
+                    </span>
+                    <a style={{color:"#000"}} href="mailto:blackprint.unlimited@gmail.com"
+                    className={styles.navbarSubtext} onClick={()=> setExpandNavigation(false)}>
+                      Contact Us
                     </a>
                   </div>
                 </motion.div>
@@ -173,57 +275,52 @@ export default function Home() {
                   </span>
                 </div>
                 <div className={styles.heroButtonContainer}>
-                  <a className={styles.heroContactButton} href="mailto:aaronjiang3942@gmail.com">
+                  <span className={styles.heroContactButton} onClick={()=>scrollToId("form")}>
                     <p className={styles.buttonText}>
                       Get Started
                     </p>
-                  </a>
-                  <a className={styles.heroResumeButton} href="https://aaronresume.s3.us-west-1.amazonaws.com/Aaron_Jiang_Resume_June_2024.pdf">
+                  </span>
+                  <a className={styles.heroResumeButton} href="mailto:blackprint.unlimited@gmail.com">
                     <div className={styles.heroResumeButtonInner}>
-                    <p className={styles.buttonText} style={{color:"#000"}}>
-                      Learn More
-                    </p>
+                      <p className={styles.buttonText} style={{color:"#000"}}>
+                        Learn More
+                      </p>
                     </div>
                   </a>
                 </div>
-              
-
               </div>
-
             </section>
             
-        
             <section className={styles.frameworksSection}>
-
-            <div className={styles.aboutSection}>
-              <div className={styles.aboutContainer}>
-                {(windowSize.width > 768) ?
-                <>
-                <div className={styles.aboutContextContainer}>
-                  <p className={styles.aboutHeader}>
-                    About TradesMark
-                  </p>
-                  <p className={styles.aboutSubtext}>
-                  TradesMark is a full service marketing agency that focuses on scaling blue collar companies.<br/><br/>
-                  With web development, reputation management, all realms of marketing and paid advertisement, we have the responsibility of fully managing the aspect of the business that not all business owners are prepared for and/or knowledgeable on.
-                  </p>
-                </div>
-              </>:
-                <>
-                  <p className={styles.aboutHeader}>
-                    About TradesMark
-                  </p>
+              <div className={styles.aboutSection}>
+                <div className={styles.aboutContainer}>
+                  {(windowSize.width > 768) ?
+                  <>
                   <div className={styles.aboutContextContainer}>
+                    <p className={styles.aboutHeader}>
+                      About TradesMark
+                    </p>
                     <p className={styles.aboutSubtext}>
                     TradesMark is a full service marketing agency that focuses on scaling blue collar companies.<br/><br/>
-                  With web development, reputation management, all realms of marketing and paid advertisement, we have the responsibility of fully managing the aspect of the business that not all business owners are prepared for and/or knowledgeable on.
+                    With web development, reputation management, all realms of marketing and paid advertisement, we have the responsibility of fully managing the aspect of the business that not all business owners are prepared for and/or knowledgeable on.
                     </p>
                   </div>
-                </>
-                }
-              </div>
+                </>:
+                  <>
+                    <p className={styles.aboutHeader}>
+                      About TradesMark
+                    </p>
+                    <div className={styles.aboutContextContainer}>
+                      <p className={styles.aboutSubtext}>
+                      TradesMark is a full service marketing agency that focuses on scaling blue collar companies.<br/><br/>
+                    With web development, reputation management, all realms of marketing and paid advertisement, we have the responsibility of fully managing the aspect of the business that not all business owners are prepared for and/or knowledgeable on.
+                      </p>
+                    </div>
+                  </>
+                  }
+                </div>
 
-            </div>
+              </div>
             
               <div className={styles.frameworksHeaderContainer}>
                 <p className={[styles.toolsHeaderText, styles.titleTextAlt].join(' ')}>
@@ -236,10 +333,7 @@ export default function Home() {
               <div className={styles.frameworksContentContainer}>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                  
                       <Image src={Lightning} alt='person' objectFit={'cover'} />
-
-               
                   </div>
                   <p className={styles.frameworksHeader}>
                     Partnering For Growth
@@ -250,9 +344,7 @@ export default function Home() {
                 </div>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                 
                       <Image src={Star} alt='person' objectFit={'cover'} />
-             
                   </div>
                   <p className={styles.frameworksHeader}>
                     Elavating Brands
@@ -263,9 +355,7 @@ export default function Home() {
                 </div>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-           
                       <Image src={Person} alt='person' objectFit={'cover'}/>
-                  
                   </div>
                   <p className={styles.frameworksHeader}>
                   Delivering Impact
@@ -274,45 +364,49 @@ export default function Home() {
                   We have a commitment towards driving forward tangible and meaningful results for blue-collar companies, ultimately contributing to your overall success and growth                </p>
                 </div>
               </div>
-                   
             </section>
             <section className={styles.projectsSection}>
-                <div className={styles.projectsHeaderContainer} id={'projects'}>
+                <div className={styles.projectsHeaderContainer} id={'projects'} ref={scrollRef}>
                   <p className={styles.projectsHeaderText}>
                     Focus more on your business, let us take care of the rest
                   </p>
                   <p className={styles.headerSubtext} style={{width:"92.5%", fontFamily:"DM Sans"}}>
                     We’ll save you time - don’t worry about the hassle of marketing and branding  
                   </p>
-                  <a className={styles.projectsButtonContainer} href="https://github.com/ajiaron">
+                  <a className={styles.projectsButtonContainer} onClick={()=>scrollToId("form")}>
                     <p className={styles.buttonText}>
                       Learn More
                     </p>
                   </a>
                 </div>
-                <div className={styles.projectsContentContainer}>
-                  <div className={styles.projectsContentWrapper}>
-                    <div className={styles.projectsContentImage}>
+                <div className={styles.projectsContentContainer} >
+                  <motion.div 
+                  style={{
+                    x:(windowSize.width>480)?((carouselTop-180)/5):((carouselTop-180)/8)
+                  }}
+                  className={styles.projectsContentWrapper} ref={carouselRef}>
+                    <span className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
-                        <Image src={Bv} alt={"bvexterior flyer"} objectFit={'cover'} fill style={{padding:"4px"}}/>
+                        {/*<Image src={Bv} alt={"bvexterior flyer"} objectFit={'cover'} fill style={{padding:"4px"}} quality={100}/>*/}
+                        <BVFlyerComponent width={windowSize.width}/>
                       </div>
-                    </div>
-                    <div className={styles.projectsContentImage}>
+                    </span>
+                    <span className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
-                        <Image src={Bvexterior} alt={"bvexterior site"} objectFit={'cover'} fill style={{padding:"4px"}}/>
-
+                        {/*<Image src={Bvexterior} alt={"bvexterior site"} objectFit={'cover'} fill style={{padding:"4px"}} quality={100}/>*/}
+                        <BVExteriorComponent width={windowSize.width}/>
                       </div>
-                    </div>
-                    <div className={styles.projectsContentImage}>
+                    </span>
+                    <span className={styles.projectsContentImage}>
                       <div className={styles.projectsContentImageInner}>
-                        <Image src={Steelnet} alt={"steelnet flyer"} objectFit={'cover'} fill  style={{padding:"4px"}}/>
-
+                        {/*<Image src={Steelnet} alt={"steelnet flyer"} objectFit={'cover'} fill  style={{padding:"4px"}}/>*/}
+                        <SteelnetComponent width={windowSize.width}/>
                       </div>
-                    </div>
-                  </div>
+                    </span>
+                  </motion.div>
                 </div>
             </section>
-            <section className={styles.servicesSection}>
+            <section className={styles.servicesSection} id={"services"}>
               <div className={styles.servicesHeaderContainer}>
                 <p className={[styles.servicesHeaderText, styles.titleTextAlt].join(' ')}>
                   Our Services
@@ -454,7 +548,7 @@ export default function Home() {
               </div>
               
             </section>
-            <section className={styles.pricingSection}>
+            <section className={styles.pricingSection} id={"pricing"}>
               <div className={styles.servicesHeaderContainer}>
                 <p className={styles.servicesHeaderText}>
                   Pricing
@@ -528,7 +622,7 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
-                  <a className={styles.pricingButton} href="https://aaronresume.s3.us-west-1.amazonaws.com/Aaron_Jiang_Resume_June_2024.pdf">
+                  <a className={styles.pricingButton}onClick={()=>scrollToId("form")}>
                     <div className={styles.pricingButtonInner}>
                     <p className={styles.buttonText} style={{color:"#000", fontSize:"1.075rem"}}>
                       Book a Demo
@@ -539,7 +633,7 @@ export default function Home() {
               </div>
             </section>
             
-            <section className={styles.whySection}>
+            <section className={styles.whySection} id={"why"}>
               <div className={styles.servicesHeaderContainer}>
                 <p className={[styles.servicesHeaderText, styles.titleTextAlt].join(' ')}>
                   Why TradesMark?
@@ -591,7 +685,7 @@ export default function Home() {
 
               </div>
             </section>
-            <section className={styles.formSection}>
+            <section className={styles.formSection} id={"form"}>
               <div className={styles.servicesHeaderContainer}>
                 <p className={[styles.servicesHeaderText, styles.titleTextAlt].join(' ')}>
                   Apply Now
@@ -609,22 +703,89 @@ export default function Home() {
                     </p>
                   </div>
                   <div className={styles.formInputContainer}>
-                    {(windowSize.width >= 1024)&&
-                    <p className={styles.formHeaderText} style={{color:"#aaa"}}>
-                      Form Integration Here
-                    </p>
+                    <motion.div style={{width:"100%", gap:"15px", display:"flex", flexDirection:"column"}}
+                    animate={{opacity:(formSubmitted)?0:1}}
+                    transition={{
+                      duration:.2
+                    }}>
+                      <div className={styles.formInputWrapper}>
+                        <p className={styles.formInputFieldHeader} style={{color:(formError.fullname==="missing")?"#FF0000":""}}>
+                          Full Name
+                        </p>
+                        <input className={styles.formInputField}
+                        name="fullName"
+                        type="text"
+                        onChange={handleChange}
+                        value={formData.fullName}
+                        placeholder={'Full Name'}>
+                        </input>
+                      </div>
+                      <div className={styles.formInputWrapper}>
+                        <p className={styles.formInputFieldHeader} style={{color:(formError.businessName==="missing")?"#FF0000":""}}>
+                          Business Name
+                        </p>
+                        <input className={styles.formInputField}
+                        name="businessName"
+                        type="text"
+                        onChange={handleChange}
+                        value={formData.businessName}
+                        placeholder={'Business Name'}>
+                        </input>
+                      </div>
+                      <div className={styles.formInputWrapper}>
+                        <p className={styles.formInputFieldHeader} style={{color:(formError.phoneNumber==="missing")?"#FF0000":""}}>
+                          Phone Number
+                        </p>
+                        <input className={styles.formInputField}
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        type="tel"
+                        name="phoneNumber"
+                        placeholder={'+1 (123) 456 7890'}>
+                        </input>
+                      </div>
+                      <div className={styles.formInputWrapper}>
+                        <p className={styles.formInputFieldHeader} style={{color:(formError.email==="missing")?"#FF0000":""}}>
+                          Email
+                        </p>
+                        <input className={styles.formInputField}
+                        name="email"
+                        type="email"
+                        onChange={handleChange}
+                        value={formData.email}
+                        placeholder={'name@email.com'}>
+                        </input>
+                      </div>
+                    </motion.div>
+                    {
+                    <AnimatePresence>
+                      {(formSubmitted)&&
+                      <motion.p className={styles.formHeaderText} 
+                      style={{color:"#666", textAlign:"center",position:"absolute", fontSize:"var(--text-larger)", fontWeight:"500"}}
+                      initial={{opacity:0}}
+                      animate={{opacity:1}}
+                      transition={{
+                        duration:.2,
+                        delay:.2
+                      }}>
+                        Thank you for{windowSize.width <=390 && <br/>} your submission!
+                      </motion.p>}
+                    </AnimatePresence>
                     }
                   </div>
-                  <span className={styles.formInputButton}>
+                  <motion.span 
+                  animate={{opacity:(formSubmitted)?0:1}}
+                  style={{pointerEvents:(formSubmitted)?"none":"auto"}}
+                  className={styles.formInputButton} onClick={(e)=>handleSubmit(e)}>
                     <p className={styles.buttonFormText}>
-                    Apply Today
+                    {(loading)?'Please Wait...':'Apply Today'}
                     </p>
-                  </span>
+                  </motion.span>
                 </div>
               </div>
             </section>
 
-            <section className={styles.valueSection}>  
+            <section className={styles.valueSection} >  
                 <div className={styles.valueContent}>
                   <div className={styles.valueContentLeft}>
                     <p className={[styles.heroSubtext, styles.subtextAlt].join(' ')}>
@@ -642,7 +803,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className={styles.faqsSection}>
+            <section className={styles.faqsSection} id={"faqs"}>
               <div className={styles.faqsHeaderContainer}>
                 <span className={styles.scribbleContainer}><Scribble/></span>
                 <p className={styles.faqsHeaderText}>
@@ -681,41 +842,41 @@ export default function Home() {
                   </div>
                 </div>
                 <div className={styles.footerButtonContainer}>
-                  <a className={styles.footerContactButton} href="mailto:aaronjiang3942@gmail.com">
+                  <span className={styles.footerContactButton} onClick={()=>scrollToId("form")}>
                     <p className={styles.buttonText}>
                       Let&apos;s Get Started
                     </p>
-                  </a>
+                  </span>
                 
                 </div>
               </div>
             </section>
 
             <div className={styles.footerNavContainer}>
-              <div className={styles.navbarWrapper} style={{width:(windowSize.width > 480)?"90%":"85%"}} href="#home">        
-                <a className={styles.navbarTitleContainer} style={{paddingTop:"1px", alignItems:"center"}}>
+              <div className={styles.navbarWrapper} style={{width:(windowSize.width > 480)?"90%":"85%"}}>        
+                <span className={styles.navbarTitleContainer} style={{paddingTop:"1px", alignItems:"center"}} onClick={()=>scrollToId("home")}>
                   <Logo/>
                   <p className={styles.footerTitle}>TradesMark</p>
-                </a>
+                </span>
 
                 <span className={[styles.navbarSubtextContainer, styles.footerSubtextContainer].join(' ')}>
-                  <span className={styles.navbarSubtext} style={{color:"#000"}}onClick={()=>scrollToId('home')}>
+                  <span className={styles.navbarSubtext} onClick={()=>scrollToId('home')}>
                     Home
                   </span>
-                  <span className={styles.navbarSubtext} style={{color:"#000"}} onClick={()=>scrollToId('home')}>
+                  <span className={styles.navbarSubtext} onClick={()=>scrollToId('services')}>
                     Services
                   </span>
-                  <span className={styles.navbarSubtext} style={{color:"#000"}} onClick={()=>scrollToId('projects')}>
+                  <span className={styles.navbarSubtext} onClick={()=>scrollToId('pricing')}>
                     Pricing
                   </span>
-                  <a className={styles.navbarSubtext} style={{color:"#000"}} href="https://github.com/ajiaron">
+                  <a className={styles.navbarSubtext} onClick={()=>scrollToId('why')}>
                     Why TradesMark
                   </a>
-                  <a className={styles.navbarSubtext} style={{color:"#000"}} href="mailto:aaronjiang3942@gmail.com">
+                  <a className={styles.navbarSubtext} onClick={()=>scrollToId('faqs')}>
                     FAQ&apos;s
                   </a>
                 </span>
-                <a className={styles.navbarSubtext} style={{color:"#000", alignSelf:"center"}} href="mailto:aaronjiang3942@gmail.com">
+                <a className={styles.navbarSubtext} style={{alignSelf:"center"}} href="mailto:blackprint.unlimited@gmail.com">
                   Contact Us
                 </a>
               </div>
@@ -727,63 +888,3 @@ export default function Home() {
 }
 
 
-{
-  /*
-
-<section className={styles.servicesSection}>
-            <div className={styles.servicesHeaderContainer}>
-              <p className={[styles.servicesHeaderText, styles.titleTextAlt].join(' ')}>
-                Why TradesMark?
-              </p>
-            </div>
-            <div className={styles.servicesContainer}>
-              <div className={styles.whyRow}>
-                <div className={styles.whyItem}>
-                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
-                    <p className={styles.whyTitle}>
-                      <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>Catered to your needs
-                    </p>
-                    <p className={styles.whyContext}>
-                      Unlike other marketing companies that have all these services with one price, we let you customize, pick and choose, and build a program that YOU need.
-                    </p>
-                  </div>
-                </div>
-                <div className={styles.whyItem}>
-                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
-                    <p className={styles.whyTitle}>
-                    <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>We care about your growth
-                    </p>
-                    <p className={styles.whyContext}>
-                      We like our partners to not only be limited, but winning. In each city we have <span style={{fontWeight:"650", color:"#000"}}>limited spots</span> for each trade to eliminate competition overload when it comes to Advertisement.                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.whyRow}>
-                <div className={styles.whyItem}>
-                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
-                    <p className={styles.whyTitle}>
-                    <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>We Prioritize You
-                    </p>
-                    <p className={styles.whyContext}>
-                      With over half a decade of being in the advertisement space we prioritize taking your business where it&apos;s at, to the level you&apos;ve always dreamed of.                    </p>
-                  </div>
-                </div>
-                <div className={styles.whyItem}>
-                  <div style={{display:"flex", flexDirection:"column", gap:"1.5rem"}}>
-                    <p className={styles.whyTitle}>
-                    <span><Triangle style={{transform:"translateY(2.25px)"}}/></span>Partnership Method
-                    </p>
-                    <p className={styles.whyContext}>
-                      With our advertising services, we don&apos;t make money unless you do, and we provide competitive pricing for branding services.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-
-
-
-   */
-}
