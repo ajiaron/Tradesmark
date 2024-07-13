@@ -382,7 +382,7 @@ export default function Home() {
                 <div className={styles.projectsContentContainer} >
                   <motion.div 
                   style={{
-                    x:(windowSize.width>480)?((carouselTop-180)/5):((carouselTop-180)/5)
+                    x:(windowSize.width>480)?((carouselTop-180)/5):((carouselTop-180)/4)
                   }}
                   className={styles.projectsContentWrapper} ref={carouselRef}>
                     <span className={styles.projectsContentImage}>
