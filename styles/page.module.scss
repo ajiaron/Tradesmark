@@ -938,10 +938,32 @@
 }
 .servicesIcon {
   height: 2.125rem;
-  background-color: #d9d9d9;
+  //background-color: #d9d9d9;
   border-radius: 2.125rem;
   width: 2.125rem;
-  margin-left: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  transform: translateX(-1px);
+}
+.servicesIconImage {
+  color:#202326;
+  width: 78.5%;
+  height: 78.5%;
+
+}
+.servicesIconImageMail {
+  color:#202326;
+  width: 90%;
+  height: 90%;
+
+}
+.servicesIconImageAlt {
+  color:#202326;
+  width: 92%;
+  height: 92%;
+
 }
 .servicesTextContainer {
   gap:.55rem;
@@ -1046,12 +1068,14 @@
   padding-bottom: 1rem;
   display: flex;
 
+  transition: all .2s linear;
   border-radius: 4px;
   border: 1px solid rgba(255,255,255,.5);
   //flex-direction: column;
   align-items: center;
   gap:0.5rem;
 }
+
 .pricingArrow {
   margin-left: auto;
   min-width: .875rem;

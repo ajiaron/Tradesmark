@@ -20,6 +20,12 @@ import Person from '../public/assets/person.png'
 import BVFlyerComponent from "./components/BVFlyer";
 import BVExteriorComponent from "./components/BVExterior";
 import SteelnetComponent from "./components/Steelnet";
+import { FaGoogle } from "react-icons/fa";
+import { IoMailOpen } from "react-icons/io5";
+import { TbHeartHandshake } from "react-icons/tb";
+import { FaGear } from "react-icons/fa6";
+import { FaPaintBrush } from "react-icons/fa";
+import { FaRegWindowRestore } from "react-icons/fa";
 
 
 export default function Home() {
@@ -421,7 +427,7 @@ export default function Home() {
                 <div className={styles.servicesRow}>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <IoMailOpen className={styles.servicesIconImageMail}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Email {'&'} SMS Marketing</p>
@@ -432,7 +438,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <TbHeartHandshake className={styles.servicesIconImageAlt}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Reputation Management</p>
@@ -443,7 +449,7 @@ export default function Home() {
                 <div className={styles.servicesRow}>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaGoogle className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Google Ads</p>
@@ -452,7 +458,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaGear className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Search Engine Optimization</p>
@@ -463,7 +469,7 @@ export default function Home() {
                 <div className={styles.servicesRow}>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaRegWindowRestore className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Website Design Development</p>
@@ -472,7 +478,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaPaintBrush className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Graphic Design Content</p>
@@ -485,7 +491,7 @@ export default function Home() {
                 <div className={styles.servicesRow}>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <IoMailOpen className={styles.servicesIconImageMail}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Email {'&'} SMS Marketing</p>
@@ -496,7 +502,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                    <TbHeartHandshake className={styles.servicesIconImageAlt}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Reputation Management</p>
@@ -505,7 +511,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaGoogle className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Google Ads</p>
@@ -516,7 +522,7 @@ export default function Home() {
                 <div className={styles.servicesRow}>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaGear className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Search Engine Optimization</p>
@@ -525,7 +531,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaRegWindowRestore className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Website Design Development</p>
@@ -534,7 +540,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-
+                      <FaPaintBrush className={styles.servicesIconImage}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Graphic Design Content</p>
