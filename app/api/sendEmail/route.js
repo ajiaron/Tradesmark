@@ -4,7 +4,12 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   const { fullName, businessName, phoneNumber, email } = await request.json();
+  console.log('EMAIL_USER:', process.env.EMAIL_USER);
+  console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
 
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    return NextResponse.json({ message: 'Missing environment variables' }, { status: 500 });
+  }
   // Create a transporter object using SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com', 
