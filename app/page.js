@@ -11,15 +11,12 @@ import Logo from '../public/assets/logo.svg'
 import Faqs from "./components/Faqs";
 import { FaArrowRight } from "react-icons/fa6";
 import Hero from '../public/assets/hero.png'
-import Bv from '../public/assets/bv2.png'
-import Bvexterior from '../public/assets/bvexterior2.png'
-import Steelnet from '../public/assets/steelnet2.png'
+import Bv from '../public/assets/bv3.png'
+import Bvexterior from '../public/assets/bvexterior3.png'
+import Steelnet from '../public/assets/steelnet3.png'
 import Lightning from '../public/assets/lightning.png'
 import Star from '../public/assets/star.png'
 import Person from '../public/assets/person.png'
-import BVFlyerComponent from "./components/BVFlyer";
-import BVExteriorComponent from "./components/BVExterior";
-import SteelnetComponent from "./components/Steelnet";
 import { FaGoogle } from "react-icons/fa";
 import { IoMailOpen } from "react-icons/io5";
 import { TbHeartHandshake } from "react-icons/tb";
@@ -109,10 +106,6 @@ export default function Home() {
   }, [windowSize, scrollY]);
 
   useEffect(() => {
-    setAnimation(true);
-  }, []);
-
-  useEffect(() => {
     const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
@@ -171,9 +164,41 @@ export default function Home() {
       main.removeEventListener('scroll', handleScroll);
     };
   }, [windowSize.width, expandNavigation]);
+
+  useEffect(() => {
+    const canvasContainer = document.getElementById('canvasContainer');
+    const bgImageUrl = '/assets/canvas2.svg';
+
+    // Create a new Image object to preload the background image
+    const bgImg = new window.Image(); // Explicitly use the JavaScript Image object
+
+    bgImg.onload = () => {
+      canvasContainer.style.backgroundImage = `url(${bgImg.src})`;
+      setAnimation(true); // Set animation state to true once image is loaded
+    };
+
+    bgImg.src = bgImageUrl;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect(); // Disconnect observer once element is in view
+        }
+      });
+    });
+
+    observer.observe(canvasContainer);
+
+    // Cleanup the observer
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <main className={styles.main} ref={scrollRef}> 
-      <div className={[styles.canvasContainer, `${animation ? styles.animateCanvas : ''}`].join(' ')}>
+      <div className={[styles.canvasContainer, `${animation ? styles.animateCanvas : ''}`].join(' ')} id={'canvasContainer'}>
+
         <div className={styles.contentContainer} ref={contentRef} id={"home"}>
             <div ref={navbarRef} className={styles.navbarContainer}>
               <div className={styles.navbarWrapper}>        
@@ -286,7 +311,7 @@ export default function Home() {
                       Get Started
                     </p>
                   </span>
-                  <a className={styles.heroResumeButton} href="mailto:blackprint.unlimited@gmail.com">
+                  <a className={styles.heroResumeButton} href="https://api.leadconnectorhq.com/widget/booking/PsvzfzYIlN2Zzs2opOzu">
                     <div className={styles.heroResumeButtonInner}>
                       <p className={styles.buttonText} style={{color:"#000"}}>
                         Learn More
@@ -379,7 +404,7 @@ export default function Home() {
                   <p className={styles.headerSubtext} style={{width:"92.5%", fontFamily:"DM Sans"}}>
                     We’ll save you time - don’t worry about the hassle of marketing and branding  
                   </p>
-                  <a className={styles.projectsButtonContainer} onClick={()=>scrollToId("form")}>
+                  <a className={styles.projectsButtonContainer} href='https://api.leadconnectorhq.com/widget/booking/PsvzfzYIlN2Zzs2opOzu'>
                     <p className={styles.buttonText}>
                       Learn More
                     </p>
@@ -628,11 +653,12 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
-                  <a className={styles.pricingButton}onClick={()=>scrollToId("form")}>
+
+                  <a className={styles.pricingButton} href='https://api.leadconnectorhq.com/widget/booking/PsvzfzYIlN2Zzs2opOzu'>
                     <div className={styles.pricingButtonInner}>
-                    <p className={styles.buttonText} style={{color:"#000", fontSize:"1.075rem"}}>
-                      Book a Demo
-                    </p>
+                      <p className={styles.buttonText} style={{color:"#000", fontSize:"1.075rem"}}>
+                        Book a Demo
+                      </p>
                     </div>
                   </a>
                 </div>
