@@ -1249,27 +1249,47 @@
   justify-content: center;
 }
 .formContent {
-  margin-top: 3.25rem;
-  width: 49.375rem;
-  height: 37rem;
+  margin-top: 3rem;
+  //width: 49.375rem;
+  width: 54.86%;
+  //width: 90%;
+  height: fit-content;
   border-radius: 17px;
-  padding-top: 3rem;
+  padding-top: .75rem;
+  padding-bottom: 0;
+  justify-content: center;
   box-shadow: 0px 0px 10px 3px #3399ff55;
   align-items: center;
   display: flex;
+  background-color: #fefefe;
   flex-direction: column;
+ // background-color: red;
+}
+#_builder-form .fields-container {
+  padding-top: 0 !important;
 }
 .formHeaderContainer {
   display: flex;
   flex-direction: column;
   gap: .5rem;
+ // border-bottom: 1px solid #0a0a0a;
 }
 .formContentWrapper {
   height: fit-content;
   width: 73.36%;
+  //width: 40.245296vw;
   //justify-content: ;
   display: flex;
+  //background-color: red;
   flex-direction: column;
+
+}
+.formContentWrapperv2 {
+  //width: 100%;
+  width: 54.86%;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 .formHeaderText {
@@ -1439,7 +1459,7 @@
   display: flex;
   align-items: center;
   background-color: #d9d9d955;
-  margin-top: 8.25rem;
+  margin-top: 5rem;
   justify-content: center;
 }
 .valueContent {
@@ -1599,12 +1619,12 @@
     margin-right: auto;
   }
   .formContent {
-    margin-top: 3.25rem;
+    margin-top: 3rem;
     width: 90%;
     height: fit-content;
-    padding-bottom: 2.5rem;
+   //padding-bottom: 2.5rem;
     border-radius: 17px;
-    padding-top: 3rem;
+    padding-top: .5rem;
     box-shadow: 0px 0px 10px 3px #3399ff55;
     align-items: center;
     display: flex;
@@ -2492,9 +2512,9 @@
     margin-top: 3.25rem;
     width: 90%;
     height: fit-content;
-    padding-bottom: 2.5rem;
+   // padding-bottom: 2.5rem;
     border-radius: 17px;
-    padding-top: 3rem;
+    padding-top: .5rem;
     box-shadow: 0px 0px 10px 3px #3399ff55;
     align-items: center;
     display: flex;
@@ -3267,9 +3287,9 @@
     margin-top: 3.25rem;
     width: 90%;
     height: fit-content;
-    padding-bottom: 2.5rem;
+   // padding-bottom: 2.5rem;
     border-radius: 17px;
-    padding-top: 3rem;
+    padding-top: .5rem;
     box-shadow: 0px 0px 10px 3px #3399ff55;
     align-items: center;
     display: flex;
@@ -3863,12 +3883,12 @@
   }
   
   .formContent {
-    margin-top: 3.25rem;
+    margin-top: 3rem;
     width: 80%;
     height: fit-content;
-    padding-bottom: 2.75rem;
+    //padding-bottom: 2.75rem;
     border-radius: 17px;
-    padding-top: 3rem;
+    padding-top: .5rem;
     box-shadow: 0px 0px 10px 3px #3399ff55;
     align-items: center;
     display: flex;
