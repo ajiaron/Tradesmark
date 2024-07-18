@@ -5,6 +5,8 @@ export default function Form({width}) {
     const formRef = useRef(null)
     const [formWidth, setFormWidth] = useState(0)
     const [loading, setLoading] = useState(false)
+    const formContainerRef = useRef(null);
+    const [thankYouMessageVisible, setThankYouMessageVisible] = useState(false);
     useEffect(()=> {
         if (width < 769) {
             setFormWidth((width*.9))
@@ -15,6 +17,22 @@ export default function Form({width}) {
         }
     }, [width])
     useEffect(() => {
+        const intervalId = setInterval(() => {
+          const container = formRef.current;
+          if (container) {
+            const thankYouMessage = container.querySelector('.thank-you-message');
+            if (thankYouMessage) {
+                console.log("thanks")
+            } 
+          }
+        }, 500); // Check every 500ms
+    
+        // Cleanup the interval on component unmount
+        return () => {
+          clearInterval(intervalId);
+        };
+      }, []);
+    useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://link.msgsndr.com/js/form_embed.js';
         script.async = true;
@@ -24,7 +42,6 @@ export default function Form({width}) {
         };
       }, []);
 
-    
     return (
         <div className={styles.formContent}>
           

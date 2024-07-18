@@ -472,6 +472,14 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+.animateEmbed {
+  animation-name: animate-canvas;
+  animation-timing-function: ease;
+  animation-duration: .5s;
+  animation-delay: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 .heroHeaderContainer {
 
 }
@@ -661,8 +669,8 @@
   justify-content: center;
 }
 .frameworksImage {
-  width: 6rem;
-  height: 6rem;
+  width: 9.25rem;
+  height: 9.25rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -670,12 +678,12 @@
   justify-content: center;
   transition: all .15s linear;
   //display: none;
-  filter: var(--default-shadow);
-  background-image: var(--button-gradient);
+  //filter: var(--default-shadow);
+  //background-image: var(--button-gradient);
 }
 .frameworksImage:hover {
-  filter: var(--button-large-hover-active);
-  transform: scale(1.05);
+  //filter: var(--button-large-hover-active);
+  //transform: scale(1.05);
 }
 .frameworksIcon {
   align-self: center;
@@ -1253,7 +1261,10 @@
   //width: 49.375rem;
   width: 54.86%;
   //width: 90%;
+  transition: all .2s linear;
   height: fit-content;
+  min-height: 37rem;
+
   border-radius: 17px;
   padding-top: .75rem;
   padding-bottom: 0;
@@ -1265,6 +1276,11 @@
   flex-direction: column;
  // background-color: red;
 }
+
+.thank-you-message > div {
+  min-height: fit-content !important;
+}
+
 #_builder-form .fields-container {
   padding-top: 0 !important;
 }
@@ -2250,12 +2266,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+ // background-color: red;
   width: 83.33%;
   //background-color: blue;
   height: fit-content;
   margin-top: 4rem;
-  gap:1.5rem;
+  gap:3rem;
 }
 .frameworksContentWrapper {
   display: flex;

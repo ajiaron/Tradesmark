@@ -14,9 +14,9 @@ import Hero from '../public/assets/hero.png'
 import Bv from '../public/assets/bv3.png'
 import Bvexterior from '../public/assets/bvexterior3.png'
 import Steelnet from '../public/assets/steelnet3.png'
-import Lightning from '../public/assets/lightning.png'
-import Star from '../public/assets/star.png'
-import Person from '../public/assets/person.png'
+import Lightning from '../public/assets/lightning2.svg'
+import Star from '../public/assets/star2.svg'
+import Person from '../public/assets/person2.svg'
 import { FaGoogle } from "react-icons/fa";
 import { IoMailOpen } from "react-icons/io5";
 import { TbHeartHandshake } from "react-icons/tb";
@@ -120,9 +120,67 @@ export default function Home() {
     };
   }, [windowSize.width, expandNavigation]);
 
+
   useEffect(() => {
-    setAnimation(true); // Set animation state to true once image is loaded
-   
+    const canvasContainer = document.getElementById('canvasContainer');
+
+    // Function to determine which image to load based on screen width
+    const getBackgroundImage = () => {
+      const width = window.innerWidth;
+      if (width >= 1281) {
+        return '/assets/canvas2.svg';
+      } else if (width >= 1025) {
+        return '/assets/canvasalt.svg';
+      } else if (width >= 769) {
+        return '/assets/canvasalt4.svg';
+      } else if (width >= 678) {
+        return '/assets/canvasalt5.svg'
+      } else if (width >= 481) {
+        return '/assets/canvasalt6.svg'
+      } else if (width >= 391) {
+        return '/assets/canvasalt7.svg'
+      } else {
+        return '/assets/canvasalt6.svg'
+      }
+    };
+
+    const loadImage = (imageUrl) => {
+      const bgImg = new window.Image();
+      bgImg.src = imageUrl;
+
+      bgImg.onload = () => {
+        canvasContainer.style.backgroundImage = `url(${bgImg.src})`;
+        setAnimation(true);
+      };
+    };
+
+    // Initial load
+    loadImage(getBackgroundImage());
+
+    // Observer to detect when the element is in view
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect(); // Disconnect observer once element is in view
+        }
+      });
+    });
+
+    observer.observe(canvasContainer);
+
+    // Event listener to handle window resize
+    const handleResize = () => {
+      setAnimation(false);
+      loadImage(getBackgroundImage());
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the observer and event listener
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -294,7 +352,7 @@ export default function Home() {
               <div className={styles.frameworksContentContainer}>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                      <Image src={Lightning} alt='person' objectFit={'cover'} />
+                    <Lightning/>
                   </div>
                   <p className={styles.frameworksHeader}>
                     Partnering For Growth
@@ -305,7 +363,7 @@ export default function Home() {
                 </div>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                      <Image src={Star} alt='person' objectFit={'cover'} />
+                    <Star/>
                   </div>
                   <p className={styles.frameworksHeader}>
                     Elavating Brands
@@ -316,7 +374,7 @@ export default function Home() {
                 </div>
                 <div className={styles.frameworksContentWrapper}>
                   <div className={styles.frameworksImageWrapper}>
-                      <Image src={Person} alt='person' objectFit={'cover'}/>
+                    <Person/>
                   </div>
                   <p className={styles.frameworksHeader}>
                   Delivering Impact
@@ -413,7 +471,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-                      <FaGear className={styles.servicesIconImage}/>
+                      <FaGear className={styles.servicesIconImage} style={{transform:"translateX(-1px)"}}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Search Engine Optimization</p>
@@ -457,7 +515,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-                    <TbHeartHandshake className={styles.servicesIconImageAlt}/>
+                    <TbHeartHandshake className={styles.servicesIconImageAlt} style={{transform:"translateX(-1px)"}}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Reputation Management</p>
@@ -466,7 +524,7 @@ export default function Home() {
                   </div>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-                      <FaGoogle className={styles.servicesIconImage}/>
+                      <FaGoogle className={styles.servicesIconImage} style={{transform:"translateX(-2px)"}}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Google Ads</p>
@@ -477,7 +535,7 @@ export default function Home() {
                 <div className={styles.servicesRow}>
                   <div className={styles.servicesItem}>
                     <div className={styles.servicesIcon}>
-                      <FaGear className={styles.servicesIconImage}/>
+                      <FaGear className={styles.servicesIconImage}  style={{transform:"translateX(-2px)"}}/>
                     </div>
                     <div className={styles.servicesTextContainer}>
                       <p className={styles.servicesTitle}>Search Engine Optimization</p>
