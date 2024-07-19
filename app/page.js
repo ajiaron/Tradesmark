@@ -25,9 +25,11 @@ import { FaPaintBrush } from "react-icons/fa";
 import { FaRegWindowRestore } from "react-icons/fa";
 import Form from "./components/Form"
 import GHLForm from "./components/GHLForm"
+import Head from 'next/head';
 
 
 export default function Home() {
+  const googletag = process.env.NEXT_PUBLIC_GOOGLE_TAG
   const scrollRef = useRef(null);
   const [scrollY, setScrollY] = useState(0)
   const [expandNavigation, setExpandNavigation] = useState(false)
@@ -184,7 +186,26 @@ export default function Home() {
   }, []);
 
   return (
+    <>
+        <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googletag}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              console.log('Google Analytics script loaded');
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date()); 
+              gtag('config', '${googletag}');
+            `
+          }}
+        />
+      </Head>
     <main className={styles.main} ref={scrollRef}> 
+
       <div className={[styles.canvasContainer, `${animation ? styles.animateCanvas : ''}`].join(' ')} id={'canvasContainer'}>
 
         <div className={styles.contentContainer} ref={contentRef} id={"home"}>
@@ -814,6 +835,7 @@ export default function Home() {
         </div>
       </div>
     </main>
+  </>
   );
 }
 
