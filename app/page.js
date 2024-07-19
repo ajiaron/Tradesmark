@@ -190,7 +190,7 @@ export default function Home() {
         <Head>
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=${googletag}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-8J2XT06MFK`}
         />
         <script
           dangerouslySetInnerHTML={{
@@ -199,7 +199,7 @@ export default function Home() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date()); 
-              gtag('config', '${googletag}');
+              gtag('config', 'G-8J2XT06MFK');
             `
           }}
         />
