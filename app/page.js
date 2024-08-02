@@ -243,7 +243,7 @@ export default function Home() {
               
                 </span>
                 <a className={styles.navbarSubtext} href="tel:+6505252567" style={{alignSelf:"center"}}>
-                  Call Us @
+                  Call Us @{"+1(650)525-2567"}
                 </a>
                 </>
                 }
