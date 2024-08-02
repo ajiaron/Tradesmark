@@ -242,8 +242,8 @@ export default function Home() {
                   </a>
               
                 </span>
-                <a className={styles.navbarSubtext} href="mailto:blackprint.unlimited@gmail.com" style={{alignSelf:"center"}}>
-                  Contact Us
+                <a className={styles.navbarSubtext} href="tel:+6505252567" style={{alignSelf:"center"}}>
+                  Call Us @
                 </a>
                 </>
                 }
