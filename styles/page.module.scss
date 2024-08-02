@@ -4819,7 +4819,9 @@
 @media (min-width: 1480px) {
   .canvasContainer {
     background-image: url('/assets/canvas2.svg');
-    background-size:cover; 
+    background-size:100% auto; 
+    
+   // background-color: red;
    //background-size: auto; 
     background-position: 100% auto;
     background-repeat: no-repeat; 
@@ -4840,9 +4842,10 @@
     //height: 50vh;
     display: flex;
     overflow: visible;
+   // background-color: rgba(255, 0, 0, 0.227);
     width: 100%;
     align-items: center; 
-    padding-left: 7.625rem;
+   // padding-left: 0;
   }
   .heroTextContainer {
     width: 50%;

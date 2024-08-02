@@ -206,7 +206,8 @@ export default function Home() {
       </Head>
     <main className={styles.main} ref={scrollRef}> 
 
-      <div className={[styles.canvasContainer, `${animation ? styles.animateCanvas : ''}`].join(' ')} id={'canvasContainer'}>
+      <div className={[styles.canvasContainer, `${animation ? styles.animateCanvas : ''}`].join(' ')} id={'canvasContainer'}
+      style={{backgroundSize:(windowSize.width<=1440)?"":`${(1538 / 1440)*100}% auto`}}>
 
         <div className={styles.contentContainer} ref={contentRef} id={"home"}>
             <div ref={navbarRef} className={styles.navbarContainer}>
