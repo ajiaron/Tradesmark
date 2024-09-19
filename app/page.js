@@ -23,6 +23,8 @@ import { TbHeartHandshake } from "react-icons/tb";
 import { FaGear } from "react-icons/fa6";
 import { FaPaintBrush } from "react-icons/fa";
 import { FaRegWindowRestore } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa";
+import { FaWrench } from "react-icons/fa";
 import Form from "./components/Form"
 import GHLForm from "./components/GHLForm"
 import Head from 'next/head';
@@ -300,7 +302,7 @@ export default function Home() {
                 }
               </AnimatePresence>
               }
-        
+          
             <section className={styles.heroSectionContainer} id={'home'}>
               <div className={[`${styles.heroTextContainer} ${animation ? styles.animateIn : ''}`]}>
                 <div style={{display:"inline"}}>
@@ -331,8 +333,39 @@ export default function Home() {
                 </div>
               </div>
             </section>
+       
             
             <section className={styles.frameworksSection}>
+            <section className={styles.adSection}>
+              <div className={styles.adItemContainer}>
+                <div className={styles.adItem}>
+                  <div className={styles.adHeaderIcon}>
+                    <FaGoogle className={styles.adIcon}/>
+
+                  </div>
+                  <p className={styles.adTitle}>
+                    Over +$1M managed in Google Ad spend.
+                  </p>
+                </div>
+                <div className={styles.adItem}>
+                  <div className={styles.adHeaderIcon}>
+                    <FaMoneyBillWave className={styles.adIcon}/>
+                  </div>
+                  <p className={styles.adTitle}>
+                  An average of a 3-10x return on ad spend.
+                  </p>
+                </div>
+                <div className={styles.adItem}>
+                  <div className={styles.adHeaderIcon}>
+                    <FaWrench className={styles.adIcon}/>
+                  </div>
+                  <p className={styles.adTitle}>
+                  {windowSize.width>768&&<br/>}
+                  Over 10+ years of industry.
+                  </p>
+                </div>
+              </div>
+            </section>
               <div className={styles.aboutSection}>
                 <div className={styles.aboutContainer}>
                   {(windowSize.width > 768) ?

@@ -437,9 +437,11 @@
  // height: 90.45%;
   overflow: visible;
   height: fit-content;
+ // min-height: 100vh;
  // background-color: red;
   width: 100%;
   //align-items: center;
+ // background-color: red;
 
   
   padding-left: 7.625rem;
@@ -560,19 +562,97 @@
   }
 }
 
+.adSection {
+  width: 100%;
+  min-height: 18rem;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap:2rem;
+  justify-content: space-evenly;
+  background-color: #1D2022;
+  transform: translateY(-50%);
+ // background-color: red;
+}
+.adItemContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  min-height: 100%;
+ // background-color: red;
+  height: 100%;
+  gap:1rem;
+  align-items: center;
+}
+.adItem {
+  width: 22rem;
+  padding-left:1.75rem;
+
+
+  border-radius: 1rem;
+  padding-top: 1.75rem;
+  border: 2px solid #3399ff9d;
+  //background:var(--tab-gradient);
+  background-color: #D3E2F1;
+  //border: 2px solid #3399ff9d;
+
+  padding-right: 1.75rem;
+  padding-bottom: 1.25rem;
+  display: flex;
+  transition: all .15s linear;
+
+  gap:1.125rem;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.adHeaderIcon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a0c0e1;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,.15);
+}
+.adIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color:#0a0a0a;
+}
+.adTitle {
+  color:#0a0a0a;
+  font-size:  clamp(1.925rem, 4vw, 26px);
+  font-family: var(--default-font);
+  font-weight:500;
+  letter-spacing: -.25px;
+  line-height: 36px;
+  text-align: left;
+}
+.adSubtitle {
+  color:#fff;
+  font-size: var(--text-small);
+  font-family: var(--default-font);
+  font-weight: 400;
+  letter-spacing: -.1px;
+}
+
 // about section
 
 .aboutSection {
   max-width: var(--default-width);
 
   width: 100%;
-  transform: translateY(-50%);
+  transform: translateY(-40%);
   min-height: fit-content;
   //padding-top: 2rem;
   //padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   z-index: 1;
+
   align-items: center;
   justify-content: center;
 }
@@ -1625,6 +1705,32 @@
   }
 }
 @media (max-width: 390px) {
+  .adSection {
+    width: 100%;
+    min-height: fit-content;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1D2022;
+    transform: translateY(0%);
+   // background-color: red;
+  }
+  .adItemContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+  }
+  .adItem {
+    height: fit-content;
+    min-height: fit-content;
+  }
   .canvasContainer {
     background-image: url('/assets/canvasalt6.svg');
     background-size: auto; 
@@ -2516,6 +2622,28 @@
 }
 }
 @media (min-width: 391px) and (max-width: 480px) {
+  .adSection {
+    width: 100%;
+    min-height: fit-content;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1D2022;
+    transform: translateY(0%);
+   // background-color: red;
+  }
+  .adItemContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 100%;
+    gap:1rem;
+    flex-direction: column;
+    align-items: center;
+  }
   .canvasContainer {
     background-image: url('/assets/canvasalt7.svg');
     background-size: auto; 
@@ -3300,6 +3428,28 @@
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .adSection {
+    width: 100%;
+    min-height: fit-content;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1D2022;
+    transform: translateY(0%);
+   // background-color: red;
+  }
+  .adItemContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+  }
   .formContent {
     margin-top: 3.25rem;
     width: 90%;
@@ -3889,6 +4039,14 @@
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
+    .adItem {
+      padding-right: 1.125rem;
+      padding-left: 1.5rem;
+    }
+    .adTitle {
+      font-size: clamp(1.825rem, 4vw, 24px)
+
+    }
     .canvasContainer {
     background-image: url('/assets/canvasalt4.svg');
     background-size: cover; 
