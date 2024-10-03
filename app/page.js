@@ -341,27 +341,35 @@ export default function Home() {
                 <div className={styles.adItem}>
                   <div className={styles.adHeaderIcon}>
                     <FaGoogle className={styles.adIcon}/>
-
                   </div>
+                  <p className={styles.adHeader}>
+                    +$1M
+                  </p>
                   <p className={styles.adTitle}>
-                    Over +$1M managed in Google Ad spend.
+                    Managed in Google Ad spend.
                   </p>
                 </div>
                 <div className={styles.adItem}>
                   <div className={styles.adHeaderIcon}>
                     <FaMoneyBillWave className={styles.adIcon}/>
                   </div>
+                  <p className={styles.adHeader}>
+                    3-10x
+                  </p>
                   <p className={styles.adTitle}>
-                  An average of a 3-10x return on ad spend.
+                  Our average return on ad spend.
                   </p>
                 </div>
                 <div className={styles.adItem}>
                   <div className={styles.adHeaderIcon}>
                     <FaWrench className={styles.adIcon}/>
                   </div>
+                  <p className={styles.adHeader}>
+                    10+ 
+                  </p>
                   <p className={styles.adTitle}>
-                  {windowSize.width>768&&<br/>}
-                  Over 10+ years of industry.
+          
+                  Years of industry {'&'} service.
                   </p>
                 </div>
               </div>
