@@ -869,7 +869,7 @@ export default function Home() {
                     FAQ&apos;s
                   </a>
                 </span>
-                <a className={styles.navbarSubtext} style={{alignSelf:"center"}} href="mailto:blackprint.unlimited@gmail.com">
+                <a className={styles.navbarSubtext} style={{alignSelf:"center"}} href="mailto:Tradesmarkmarketing@gmail.com">
                   Contact Us
                 </a>
               </div>
